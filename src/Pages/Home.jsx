@@ -52,7 +52,7 @@ const cardData = [
   {
     id: 5,
     img: "./Assets/Home/card5.png",
-    title: "Kolej Aminuddin Baki",
+    title: "Kolej Burhanuddin Helmi",
     place: "Hostels",
     location: "Kinabalu, Malaysia",
     floor: "4 Floors",
@@ -61,7 +61,7 @@ const cardData = [
   {
     id: 6,
     img: "./Assets/Home/card6.png",
-    title: "Kolej Aminuddin Baki",
+    title: "Kolej Pendeta Za’ba",
     place: "Guest House",
     location: "Kinabalu, Malaysia",
     floor: "4 Floors",
@@ -111,7 +111,7 @@ const Home = () => {
             <p
               key={index}
               onClick={() => setSelectedFilter(title)}
-              className={`select-none border-[1.5px] rounded-full px-4 py-[2.3px] font-medium inline-block cursor-pointer ${selectedFilter === title
+              className={`select-none border-[1.5px] transition-all rounded-full px-4 py-[2.3px] font-medium inline-block cursor-pointer ${selectedFilter === title
                 ? "bg-blue text-white border-blue"
                 : "text-blue border-blue"
                 }`}
@@ -123,7 +123,7 @@ const Home = () => {
 
         <div className="mt-6 mb-20 flex justify-center items-center flex-wrap gap-4">
           {filteredCards.map((item) => (
-            <div className="max-w-md" key={item.id}>
+            <div className="max-w-md transition-all animate-myFadeIn" key={item.id}>
               <div className="border-[1.33px] border-[#cfd1d4] p-3 rounded-t-xl flex gap-4">
                 <img src={item.img} className="h-[9rem] rounded-xl" alt="house" />
                 <div>

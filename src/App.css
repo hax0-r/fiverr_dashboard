@@ -1,17 +1,68 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 * {
-margin:0;
-padding:0;
-box-sizing:border-box;
-outline: none;
-font-family: "Inter", sans-serif;
-scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    font-family: "Inter", sans-serif;
+    scroll-behavior: smooth;
 }
- 
+
 :root {
---black-color: #1e1c1c;
---white-color: #f7f7f7;
-/* --white-color: #0051ff; */
+    --black-color: #1e1c1c;
+    --white-color: #f7f7f7;
 }
- 
+
+@keyframes myFadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.active {
+    background-color: #dbeafe;
+    color: #2463eb;
+    font-weight: 600;
+    transition: 200ms all;
+}
+
+/* styles.css */
+.custom-progress-bg {
+    background-color: #e7fef4;
+}
+
+.custom-progress-indicator {
+    background-color: #169d00;
+}
+
+
+/* 
+::-webkit-scrollbar {
+    margin-left: 2rem;
+    padding-left: 2rem;
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    margin-left: 2rem;
+    padding-left: 2rem;
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #5b5b5b;
+    border-radius: 10px;
+    margin-left: 2rem;
+    padding-left: 2rem;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    margin-left: 2rem;
+    padding-left: 2rem;
+    background: #d9d9d9;
+} */
