@@ -44,7 +44,7 @@ const DashBoardHeader = () => {
                         <img src="./Assets/Dashboard/Bell.svg" alt="Notifications" className='select-none' />
                         {isNotificationOpen && (
                             <div className="absolute z-50 top-12 animate-myFadeIn right-5 w-[448px]">
-                                <Notifications />
+                                <Notifications />   
                             </div>
                         )}
                     </div>

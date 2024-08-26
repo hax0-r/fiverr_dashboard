@@ -1,32 +1,35 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './App.css';
 import Router from './Router/Router';
-import DashboardSliderLinks from './components/ui/DashboardSliderLinks';
+import DashboardRoutes from './Router/DashboardRoutes';
 import DashBoardHeader from './components/ui/DashBoardHeader';
-import Login from './Pages/Login';
-import DashboardRoutes from './Router/DashBoardRoutes';
+import DashboardSliderLinks from './components/ui/DashboardSliderLinks';
+import { useLocation } from 'react-router-dom';
 
 const App = () => {
-  // const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const location = useLocation();
 
-  // const handleLogin = () => {
-  //   setIsAuthenticated(true);
-  // };
-
-  // if (!isAuthenticated) {
-  //   return <Login onLogin={handleLogin} />;
-  // }
+  const isDashboardRoute = location.pathname.startsWith('/dashboard') ||
+    location.pathname.startsWith('/property') ||
+    location.pathname.startsWith('/tenant') ||
+    location.pathname.startsWith('/transaction') ||
+    location.pathname.startsWith('/account') ||
+    location.pathname.startsWith('/setting');
 
   return (
     <>
       <Router />
-      <DashBoardHeader />
-      <div className="flex justify-start items-start">
-        <DashboardSliderLinks />
-        <div className="p-5 pl-32 pt-28 w-full">
-          <DashboardRoutes />
-        </div>
-      </div>
+      {isDashboardRoute && (
+        <>
+          <DashBoardHeader />
+          <div className="flex justify-start items-start">
+            <DashboardSliderLinks />
+            <div className="p-5 pl-32 pt-28 w-full">
+              <DashboardRoutes />
+            </div>
+          </div>
+        </>
+      )}
     </>
   );
 };
