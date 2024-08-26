@@ -1,6 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button"; // Correct the import path for Button
-import { Plus } from 'lucide-react'; 
+import { PiCloudArrowUp } from "react-icons/pi";
 
 const photos = [
   '/Assets/Property/img1.png', 
@@ -18,9 +18,9 @@ function PhotoGrid() {
           <img src={photo} alt={`Photo ${index + 1}`} className="object-cover w-full h-full rounded-lg" />
         </Card>
       ))}
-      <Card className="flex justify-center items-center border-dashed border-2 border-gray-300 rounded-lg">
-        <Button variant="ghost">
-          <Plus className="w-6 h-6" />
+      <Card className="flex justify-center items-center flex-col border-dashed border-2 border-blue rounded-lg">
+          <PiCloudArrowUp className="text-3xl text-blue" />
+        <Button variant="ghost " className="flex flex-col text-lg text-blue">
           Add Photo
         </Button>
       </Card>

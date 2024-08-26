@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import Router from './Router/Router';
+import MainRouter from './Router/MainRouter';
 import DashboardRoutes from './Router/DashboardRoutes';
 import DashBoardHeader from './components/ui/DashBoardHeader';
 import DashboardSliderLinks from './components/ui/DashboardSliderLinks';
@@ -18,7 +18,7 @@ const App = () => {
 
   return (
     <>
-      <Router />
+      {!isDashboardRoute && <MainRouter />}
       {isDashboardRoute && (
         <>
           <DashBoardHeader />
