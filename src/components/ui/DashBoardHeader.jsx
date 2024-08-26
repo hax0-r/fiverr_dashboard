@@ -11,7 +11,14 @@ const DashBoardHeader = () => {
     const navigate = useNavigate();
 
     // Determine the current page based on the URL path
-    const currentPage = location.pathname.substring(1); // Remove the leading slash
+    const pathSegments = location.pathname.split('/').filter(Boolean); // Split and remove empty segments
+    const currentPage = pathSegments[pathSegments.length - 1] || 'Home'; // Get the last segment or default to 'Home'
+
+    // Convert the last segment into a human-readable format
+    const formattedPage = currentPage
+        .split('-')
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(' ');
 
     const toggleNotification = () => {
         setIsNotificationOpen(!isNotificationOpen);
@@ -32,16 +39,16 @@ const DashBoardHeader = () => {
             <div className="flex justify-between items-center fixed w-full bg-white z-50 p-5 border-[1.5px] border-zinc-200">
                 <div className="flex items-center gap-8">
                     <Link to={"/home"}>
-                        <img src="./Assets/Global/logoBlue.svg" alt="Logo" />
+                        <img src="/Assets/Global/logoBlue.svg" alt="Logo" />
                     </Link>
                     <h1 className="text-[#101010] text-2xl font-semibold capitalize">
-                        {currentPage}
+                        {formattedPage}
                     </h1>
                 </div>
                 <div className="flex items-center gap-4 z-510">
                     <div className="bg-[#edefeb] relative w-10 h-10 flex justify-center cursor-pointer items-center rounded-full transition-all hover:bg-[#e2e4e0]" onClick={toggleNotification}>
                         <div className="absolute -top-2 -right-1 w-5 h-5 text-sm flex justify-center items-center text-white rounded-full bg-[#2463EB]">2</div>
-                        <img src="./Assets/Dashboard/Bell.svg" alt="Notifications" className='select-none' />
+                        <img src="/Assets/Dashboard/Bell.svg" alt="Notifications" className='select-none' />
                         {isNotificationOpen && (
                             <div className="absolute z-50 top-12 animate-myFadeIn right-5 w-[448px]">
                                 <Notifications />   
@@ -52,7 +59,7 @@ const DashBoardHeader = () => {
                         className="bg-[#edefeb] z-20 w-10 h-10 flex justify-center items-center rounded-full transition-all hover:bg-[#e2e4e0] cursor-pointer relative"
                         onClick={toggleAdminMenu}
                     >
-                        <img src="./Assets/Dashboard/User.svg" alt="User" className='select-none' />
+                        <img src="/Assets/Dashboard/User.svg" alt="User" className='select-none' />
                         {/* Admin Logout */}
                         {isAdminMenuOpen && (
                             <div className="absolute bg-white z-50 animate-myFadeIn top-14 right-2">
