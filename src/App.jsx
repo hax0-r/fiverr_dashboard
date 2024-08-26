@@ -23,7 +23,7 @@ const App = () => {
       <DashBoardHeader />
       <div className="flex justify-start items-start">
         <DashboardSliderLinks />
-        <div className="p-5 w-full">
+        <div className="p-5 pl-32 pt-28 w-full">
           <DashboardRoutes />
         </div>
       </div>

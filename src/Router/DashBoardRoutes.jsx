@@ -11,8 +11,8 @@ import { Route, Routes } from 'react-router-dom'
 const DashboardRoutes = () => {
     return (
         <Routes>
-            <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/dashboard-home" element={<DashboardHome />} />
+            <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/property" element={<Property />} />
             <Route path="/tenant" element={<Tenant />} />
             <Route path="/transaction" element={<Transaction />} />

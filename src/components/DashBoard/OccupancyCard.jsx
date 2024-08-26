@@ -11,7 +11,7 @@ const OccupancyCard = () => {
     const availablePercentage = Math.round((availableRooms / totalRooms) * 100);
 
     return (
-        <Card className=" max-w-[400px] ">
+        <Card className="">
             <CardHeader className="pb-3 pt-2 px-4">
                 <div className="flex  justify-between items-center">
                     <div>

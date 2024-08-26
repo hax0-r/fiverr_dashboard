@@ -9,7 +9,7 @@ import { LiaUser } from "react-icons/lia";
 const DashboardSliderLinks = () => {
     return (
         <>
-            <div className="w-[7rem] border-r-[1.5px] border-zinc-200 pt-3">
+            <div className="w-[7rem] border-r-[1.5px] fixed bg-white z-50 h-full left-0 top-[5.4rem] border-zinc-200 pt-3">
                 <ul className='flex flex-col gap-3'>
                     <NavLink to={"/dashboard"} className="flex justify-center p-3  items-center flex-col transition-all">
                         <PiHouseSimple className=' text-2xl' />
