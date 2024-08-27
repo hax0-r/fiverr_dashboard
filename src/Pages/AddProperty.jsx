@@ -15,6 +15,7 @@ import {
 } from "react-icons/fa";
 import { Toggle } from '@/components/ui/toggle';
 import AddPropertyForm from '@/components/Property/AddPropertyForm';
+import { Button } from '@/components/ui/button';
 
 const facilities = [
     { name: "Parking Motorbike", icon: FaMotorcycle },
@@ -102,6 +103,11 @@ const AddProperty = () => {
                         <div className="h-[1px] w-full bg-[#CFD1D4] mt-5"></div>
                         <h2 className='text-xl font-bold pb-3 pt-5'>General Information</h2>
                         <AddPropertyForm />
+                        <div className="h-[1px] w-full bg-[#CFD1D4] mt-5"></div>
+                        <div className="mt-5 flex justify-between items-center">
+                            <Button className="bg-transparent text-red-600 border-[1.5px] border-red-600 hover:bg-red-600 hover:text-white">Cancel</Button>
+                            <Button className="hover:bg-transparent hover:text-blue border-[1.5px] border-blue bg-blue text-white">Create</Button>
+                        </div>
                     </div>
                 </div>
             </div>

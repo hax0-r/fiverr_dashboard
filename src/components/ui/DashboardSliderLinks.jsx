@@ -23,7 +23,7 @@ const DashboardSliderLinks = () => {
                         <PiBuildingsLight className=' text-2xl' />
                         Tenant
                     </NavLink>
-                    <NavLink to={"transaction"} className="flex justify-center p-3  items-center flex-col transition-all ">
+                    <NavLink to={"/transaction-list"} className="flex justify-center p-3  items-center flex-col transition-all ">
                         <PiListChecks className=' text-2xl' />
                         Transaction
                     </NavLink>
