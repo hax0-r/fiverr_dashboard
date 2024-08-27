@@ -34,7 +34,7 @@ const Login = ({ onLogin }) => {
         </div>
         <form onSubmit={submitHandler} className='md:max-w-[50%] px-6 w-full'>
           <div className="max-w-[373px] mx-auto w-full">
-            <h2 className='text-center text-2xl text-heading font-semibold pb-2'>Welcome Back 👋</h2>
+            <h2 className='text-center text-2xl text-heading font-semibold pb-2'>Welcome Baack 👋</h2>
             <p className='text-center pb-8 text-para'>Please sign in to continue!</p>
             <Label htmlFor="email" className="font-semibold">Email</Label>
             <Input
