@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Table, TableBody, TableCell, TableHeader, TableRow } from '../ui/table';
 import { Button } from '../ui/button';
 import { RiExpandUpDownFill } from "react-icons/ri";
@@ -7,128 +7,162 @@ import { PiBuildings, PiHourglassHighFill } from 'react-icons/pi';
 import { Input } from '../ui/input';
 import { IoSearchOutline } from 'react-icons/io5';
 import { DropdownMenu, DropdownMenuItem, DropdownMenuContent, DropdownMenuTrigger } from '../ui/dropdown-menu';
+import {
+    Pagination,
+    PaginationContent,
+    PaginationItem,
+    PaginationLink,
+    PaginationNext,
+    PaginationPrevious,
+} from "@/components/ui/pagination"
+
 
 const BookingTable = ({ bookings }) => {
+    const [searchQuery, setSearchQuery] = useState('');
+    const [paymentTypeFilter, setPaymentTypeFilter] = useState('');
+    const [typeFilter, setTypeFilter] = useState('');
+    const [propertyFilter, setPropertyFilter] = useState('');
+    const [statusFilter, setStatusFilter] = useState('');
+    const [dateFilter, setDateFilter] = useState('');
+    const [currentPage, setCurrentPage] = useState(1);
+    const itemsPerPage = 10;
+
+    const filteredBookings = bookings.filter(booking => {
+        return (
+            (booking.name.toLowerCase().includes(searchQuery.toLowerCase()) || booking.id.toLowerCase().includes(searchQuery.toLowerCase())) &&
+            (paymentTypeFilter === '' || booking.paymentType === paymentTypeFilter) &&
+            (typeFilter === '' || booking.type === typeFilter) &&
+            (propertyFilter === '' || booking.building === propertyFilter) &&
+            (statusFilter === '' || booking.status === statusFilter) &&
+            (dateFilter === '' || booking.date === dateFilter)
+        );
+    });
+
+    const totalItems = bookings.length;
+
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const currentBookings = filteredBookings.slice(startIndex, startIndex + itemsPerPage);
+    const totalPages = Math.ceil(filteredBookings.length / itemsPerPage);
+
     return (
         <div className="overflow-x-auto">
-            <div className="mt-5 border-b-0 border  border-gray-200 rounded-t-lg p-3 flex items-center gap-5">
+            <div className="mt-5 border-b-0 border border-gray-200 rounded-t-lg p-3 flex items-center gap-5">
                 <div className="relative flex max-w-[174px] border-b-[1.5px] border-zinc-200 justify-center items-center w-full">
                     <Input
                         placeholder="Search"
                         className="rounded-full pl-6 py-5 w-full focus:outline-none focus:ring-0 border border-transparent placeholder:text-[#71717A]"
+                        value={searchQuery}
+                        onChange={(e) => setSearchQuery(e.target.value)}
                     />
                     <IoSearchOutline className="absolute left-0 text-[#848485]" />
                 </div>
-                <div className="border p-3 py-2 border-gray-200 rounded-lg w-full grid grid-cols-5 ">
+                <div className="border p-3 py-2 border-gray-200 rounded-lg ml-auto flex justify-end items-center flex-wrap gap-5">
                     <div className="flex items-center gap-4 text-nowrap">
                         Payment Type
                         <DropdownMenu>
                             <DropdownMenuTrigger asChild>
                                 <Button className="bg-transparent transition-all text-[#101010] border-[1.4px] border-zinc-300 hover:bg-zinc-100 hover:border-zinc-100 flex items-center gap-2">
-                                Select
+                                    {paymentTypeFilter || 'Select'}
                                     <FaChevronDown className='text-[#101010]' />
                                 </Button>
                             </DropdownMenuTrigger>
                             <DropdownMenuContent>
-                                <DropdownMenuItem>
+                                <DropdownMenuItem onSelect={() => setPaymentTypeFilter('Cash Payment')}>
+                                    Cash Payment
+                                </DropdownMenuItem>
+                                <DropdownMenuItem onSelect={() => setPaymentTypeFilter('Transfer')}>
                                     Transfer
                                 </DropdownMenuItem>
-                                <DropdownMenuItem>
-                                    Property 2
+                                <DropdownMenuItem onSelect={() => setPaymentTypeFilter('E-Money')}>
+                                    E-Money
                                 </DropdownMenuItem>
-                                <DropdownMenuItem>
-                                    Property 3
+                                <DropdownMenuItem onSelect={() => setPaymentTypeFilter('')}>
+                                    Clear
                                 </DropdownMenuItem>
                             </DropdownMenuContent>
                         </DropdownMenu>
                     </div>
                     <div className="flex items-center gap-4 text-nowrap">
-                        Payment Type
+                        Type
                         <DropdownMenu>
                             <DropdownMenuTrigger asChild>
                                 <Button className="bg-transparent transition-all text-[#101010] border-[1.4px] border-zinc-300 hover:bg-zinc-100 hover:border-zinc-100 flex items-center gap-2">
-                                Select
+                                    {typeFilter || 'Select'}
                                     <FaChevronDown className='text-[#101010]' />
                                 </Button>
                             </DropdownMenuTrigger>
                             <DropdownMenuContent>
-                                <DropdownMenuItem>
-                                    Transfer
+                                <DropdownMenuItem onSelect={() => setTypeFilter('Single')}>
+                                    Single
                                 </DropdownMenuItem>
-                                <DropdownMenuItem>
-                                    Property 2
+                                <DropdownMenuItem onSelect={() => setTypeFilter('Double')}>
+                                    Double
                                 </DropdownMenuItem>
-                                <DropdownMenuItem>
-                                    Property 3
+                                <DropdownMenuItem onSelect={() => setTypeFilter('')}>
+                                    Clear
                                 </DropdownMenuItem>
                             </DropdownMenuContent>
                         </DropdownMenu>
                     </div>
                     <div className="flex items-center gap-4 text-nowrap">
-                        Payment Type
+                        Property
                         <DropdownMenu>
                             <DropdownMenuTrigger asChild>
                                 <Button className="bg-transparent transition-all text-[#101010] border-[1.4px] border-zinc-300 hover:bg-zinc-100 hover:border-zinc-100 flex items-center gap-2">
-                                Select
+                                    {propertyFilter || 'Select'}
                                     <FaChevronDown className='text-[#101010]' />
                                 </Button>
                             </DropdownMenuTrigger>
                             <DropdownMenuContent>
-                                <DropdownMenuItem>
-                                    Transfer
+                                <DropdownMenuItem onSelect={() => setPropertyFilter('Hostel A')}>
+                                    Hostel A
                                 </DropdownMenuItem>
-                                <DropdownMenuItem>
-                                    Property 2
+                                <DropdownMenuItem onSelect={() => setPropertyFilter('Hostel B')}>
+                                    Hostel B
                                 </DropdownMenuItem>
-                                <DropdownMenuItem>
-                                    Property 3
+                                <DropdownMenuItem onSelect={() => setPropertyFilter('Hostel C')}>
+                                    Hostel C
+                                </DropdownMenuItem>
+                                <DropdownMenuItem onSelect={() => setPropertyFilter('')}>
+                                    Clear
                                 </DropdownMenuItem>
                             </DropdownMenuContent>
                         </DropdownMenu>
                     </div>
                     <div className="flex items-center gap-4 text-nowrap">
-                        Payment Type
+                        Status
                         <DropdownMenu>
                             <DropdownMenuTrigger asChild>
                                 <Button className="bg-transparent transition-all text-[#101010] border-[1.4px] border-zinc-300 hover:bg-zinc-100 hover:border-zinc-100 flex items-center gap-2">
-                                Select
+                                    {statusFilter || 'Select'}
                                     <FaChevronDown className='text-[#101010]' />
                                 </Button>
                             </DropdownMenuTrigger>
                             <DropdownMenuContent>
-                                <DropdownMenuItem>
-                                    Transfer
+                                <DropdownMenuItem onSelect={() => setStatusFilter('Paid')}>
+                                    Paid
                                 </DropdownMenuItem>
-                                <DropdownMenuItem>
-                                    Property 2
+                                <DropdownMenuItem onSelect={() => setStatusFilter('Booked')}>
+                                    Booked
                                 </DropdownMenuItem>
-                                <DropdownMenuItem>
-                                    Property 3
+                                <DropdownMenuItem onSelect={() => setStatusFilter('Waiting Confirmation')}>
+                                    Waiting Confirmation
+                                </DropdownMenuItem>
+                                <DropdownMenuItem onSelect={() => setStatusFilter('')}>
+                                    Clear
                                 </DropdownMenuItem>
                             </DropdownMenuContent>
                         </DropdownMenu>
                     </div>
                     <div className="flex items-center gap-4 text-nowrap">
-                        Payment Type
-                        <DropdownMenu>
-                            <DropdownMenuTrigger asChild>
-                                <Button className="bg-transparent transition-all text-[#101010] border-[1.4px] border-zinc-300 hover:bg-zinc-100 hover:border-zinc-100 flex items-center gap-2">
-                                Select
-                                    <FaChevronDown className='text-[#101010]' />
-                                </Button>
-                            </DropdownMenuTrigger>
-                            <DropdownMenuContent>
-                                <DropdownMenuItem>
-                                    Transfer
-                                </DropdownMenuItem>
-                                <DropdownMenuItem>
-                                    Property 2
-                                </DropdownMenuItem>
-                                <DropdownMenuItem>
-                                    Property 3
-                                </DropdownMenuItem>
-                            </DropdownMenuContent>
-                        </DropdownMenu>
+                        Date
+                        <Input
+                            type="date"
+                            className="text-[#101010] border-[1.4px] border-zinc-300"
+                            value={dateFilter}
+                            onChange={(e) => setDateFilter(e.target.value)}
+                            placeholder="Select date"
+                        />
                     </div>
                 </div>
             </div>
@@ -179,14 +213,14 @@ const BookingTable = ({ bookings }) => {
                         </TableCell>
                     </TableRow>
                 </TableHeader>
-                <TableBody>
-                    {bookings.map((booking, index) => (
+                <TableBody className="">
+                    {currentBookings.map((booking, index) => (
                         <TableRow key={index} className="hover:bg-zinc-50">
                             <TableCell>{booking.id}</TableCell>
                             <TableCell>{booking.name}</TableCell>
                             <TableCell>{booking.ids}</TableCell>
                             <TableCell>
-                                <Button className={` cursor-default ${booking.type === 'Double' ? 'hover:bg-[#E7F7FA] bg-[#E7F7FA] text-[#065966] hover:text-[#065966]' : 'hover:bg-[#fff1cc] hover:text-[#B48200] bg-[#fff1cc] text-[#B48200]'}`}>
+                                <Button className={`cursor-default ${booking.type === 'Double' ? 'hover:bg-[#E7F7FA] bg-[#E7F7FA] text-[#065966] hover:text-[#065966]' : 'hover:bg-[#fff1cc] hover:text-[#B48200] bg-[#fff1cc] text-[#B48200]'}`}>
                                     {booking.type}
                                 </Button>
                             </TableCell>
@@ -198,28 +232,66 @@ const BookingTable = ({ bookings }) => {
                             </TableCell>
                             <TableCell>{booking.paymentType}</TableCell>
                             <TableCell>
-                                <div className="flex items-center gap-1 mb-1 justify-start ">
+                                <div className="flex items-center gap-1 mb-1 justify-start">
                                     {
                                         booking.status === 'Paid' ?
-                                            <FaCheckCircle className=' text-[#6B934D]' /> :
+                                            <FaCheckCircle className='text-[#6B934D]' /> :
                                             booking.status === 'Booked' ?
                                                 <FaRegCalendarCheck className='text-[1rem] text-[#9E852D]' /> :
                                                 <PiHourglassHighFill className='text-lg text-[#F26522]' />
                                     }
                                     <h2 className={`text-[1rem]`}>
-                                        {booking.status}
+                                        {booking.status.length > 11 ? `${booking.status.substring(0, 11)}...` : booking.status}
                                     </h2>
                                 </div>
                                 <div className="text-sm text-gray-500">{booking.date}</div>
                             </TableCell>
                             <TableCell className="text-red-500 font-bold">{booking.amount}</TableCell>
                             <TableCell>
-                                <a href="#" className="text-blue text-[1rem] hover:underline ">Details</a>
+                                <a href="#" className="text-blue text-[1rem] hover:underline">Details</a>
                             </TableCell>
                         </TableRow>
                     ))}
                 </TableBody>
             </Table>
+
+            <div className="flex justify-between w-full items-center px-3 py-2 my-4 border border-gray-200 rounded-lg">
+                <h2 className="w-full">
+                Showing 1 to 10 of {totalItems} items
+                </h2>
+                <Pagination className="w-auto">
+                    <PaginationContent className="">
+                        <PaginationItem>
+                            <PaginationPrevious
+                                href="#"
+                                onClick={() => setCurrentPage(page => Math.max(page - 1, 1))}
+                                disabled={currentPage === 1}
+                                className={` px-[10px] ${currentPage === 1 && "bg-[#ebedf0]"}`}
+                            />
+                        </PaginationItem>
+                        {Array.from({ length: totalPages }, (_, index) => (
+                            <PaginationItem key={index}>
+                                <PaginationLink
+                                    href="#"
+                                    onClick={() => setCurrentPage(index + 1)}
+                                    isActive={currentPage === index + 1}
+                                    className={` border ${currentPage === index + 1 && "bg-blue text-white"}`}
+                                >
+                                    {index + 1}
+                                </PaginationLink>
+                            </PaginationItem>
+                        ))}
+                        <PaginationItem>
+                            <PaginationNext
+                                href="#"
+                                onClick={() => setCurrentPage(page => Math.min(page + 1, totalPages))}
+                                disabled={currentPage === totalPages}
+                                className={`px-[10px] ${currentPage === totalPages && "bg-[#ebedf0]"}`}
+                            />
+                        </PaginationItem>
+                    </PaginationContent>
+                </Pagination>
+            </div>
         </div>
     );
 };
