@@ -7,6 +7,7 @@ import BookingCard from '@/components/DashBoard/BookingCard';
 import { Users, CreditCard, CircleCheck, ArrowUpRight } from "lucide-react";
 import DonutChartWithText from '@/components/DashBoard/DonutChart';
 import { StatCard } from '@/components/DashBoard/StatCard';
+import { Link } from 'react-router-dom';
 
 const Dashboard = () => {
 
@@ -42,9 +43,11 @@ const Dashboard = () => {
                                 </DropdownMenuItem>
                             </DropdownMenuContent>
                         </DropdownMenu>
-                        <Button className="bg-transparent transition-all border-[1.5px] border-blue text-blue hover:bg-blue hover:text-white">
-                            See All
-                        </Button>
+                        <Link to={"/transaction-list"}>
+                            <Button className="bg-transparent transition-all border-[1.5px] border-blue text-blue hover:bg-blue hover:text-white">
+                                See All
+                            </Button>
+                        </Link>
                     </div>
                 </div>
                 <div className="mt-5 gap-4 items-center grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
