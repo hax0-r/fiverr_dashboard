@@ -15,6 +15,7 @@ import {
     PaginationNext,
     PaginationPrevious,
 } from "@/components/ui/pagination"
+import SlideSheet from './SlideSheet';
 
 
 const BookingTable = ({ bookings }) => {
@@ -248,7 +249,7 @@ const BookingTable = ({ bookings }) => {
                             </TableCell>
                             <TableCell className="text-red-500 font-bold">{booking.amount}</TableCell>
                             <TableCell>
-                                <a href="#" className="text-blue text-[1rem] hover:underline">Details</a>
+                                <SlideSheet booking={booking} />
                             </TableCell>
                         </TableRow>
                     ))}
@@ -257,7 +258,7 @@ const BookingTable = ({ bookings }) => {
 
             <div className="flex justify-between w-full items-center px-3 py-2 my-4 border border-gray-200 rounded-lg">
                 <h2 className="w-full">
-                Showing 1 to 10 of {totalItems} items
+                    Showing 1 to 10 of {totalItems} items
                 </h2>
                 <Pagination className="w-auto">
                     <PaginationContent className="">

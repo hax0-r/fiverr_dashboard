@@ -1,5 +1,7 @@
 import BookingCard from '@/components/DashBoard/BookingCard'
 import BookingTable from '@/components/Transaction/BookingTable'
+import SlideSheet from '@/components/Transaction/SlideSheet'
+import AlertDialogComp  from '@/components/Transaction/AlertDialogComp'
 import { Button } from '@/components/ui/button'
 import { DollarSign } from 'lucide-react'
 import React from 'react'
@@ -189,6 +191,8 @@ const TransactionList = () => {
         </div>
         <div className="mt-3">
           <BookingTable bookings={bookings} />
+        </div>
+        <div className="">
         </div>
       </div>
     </>
