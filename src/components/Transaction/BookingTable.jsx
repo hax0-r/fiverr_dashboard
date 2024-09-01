@@ -16,9 +16,10 @@ import {
     PaginationPrevious,
 } from "@/components/ui/pagination"
 import SlideSheet from './SlideSheet';
+import { BOOKING } from '@/assets/Transactionlist';
 
 
-const BookingTable = ({ bookings }) => {
+const BookingTable = () => {
     const [searchQuery, setSearchQuery] = useState('');
     const [paymentTypeFilter, setPaymentTypeFilter] = useState('');
     const [typeFilter, setTypeFilter] = useState('');
@@ -28,7 +29,7 @@ const BookingTable = ({ bookings }) => {
     const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 10;
 
-    const filteredBookings = bookings.filter(booking => {
+    const filteredBookings = BOOKING.filter(booking => {
         return (
             (booking.name.toLowerCase().includes(searchQuery.toLowerCase()) || booking.id.toLowerCase().includes(searchQuery.toLowerCase())) &&
             (paymentTypeFilter === '' || booking.paymentType === paymentTypeFilter) &&
@@ -39,7 +40,7 @@ const BookingTable = ({ bookings }) => {
         );
     });
 
-    const totalItems = bookings.length;
+    const totalItems = BOOKING.length;
 
     const startIndex = (currentPage - 1) * itemsPerPage;
     const currentBookings = filteredBookings.slice(startIndex, startIndex + itemsPerPage);

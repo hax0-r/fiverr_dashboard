@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Input } from '@/components/ui/input';
 import { IoSearchOutline } from "react-icons/io5";
-import { Button } from '@/components/ui/button';
 import { GoArrowRight } from "react-icons/go";
 import { Link } from 'react-router-dom';
+import { PROPERTY } from '@/assets/Home/Property';
 
 const filterItems = [
   { title: "All" },
@@ -12,62 +12,7 @@ const filterItems = [
   { title: "Hostels" },
 ];
 
-const cardData = [
-  {
-    id: 1,
-    img: "./Assets/Home/card1.png",
-    title: "Kolej Ibu Zain (KIZ)",
-    place: "Apartment",
-    location: "Kinabalu, Malaysia",
-    floor: "4 Floors",
-    slot: 27,
-  },
-  {
-    id: 2,
-    img: "./Assets/Home/card2.png",
-    title: "Kolej Dato’Onn",
-    place: "Apartment",
-    location: "Kinabalu, Malaysia",
-    floor: "4 Floors",
-    slot: 27,
-  },
-  {
-    id: 3,
-    img: "./Assets/Home/card3.png",
-    title: "Bangi Gateway Apartement",
-    place: "Apartement",
-    location: "Kinabalu, Malaysia",
-    floor: "4 Floors",
-    slot: 27,
-  },
-  {
-    id: 4,
-    img: "./Assets/Home/card4.png",
-    title: "Kolej Aminuddin Baki",
-    place: "Hostels",
-    location: "Kinabalu, Malaysia",
-    floor: "4 Floors",
-    slot: 27,
-  },
-  {
-    id: 5,
-    img: "./Assets/Home/card5.png",
-    title: "Kolej Burhanuddin Helmi",
-    place: "Hostels",
-    location: "Kinabalu, Malaysia",
-    floor: "4 Floors",
-    slot: 27,
-  },
-  {
-    id: 6,
-    img: "./Assets/Home/card6.png",
-    title: "Kolej Pendeta Za’ba",
-    place: "Guest House",
-    location: "Kinabalu, Malaysia",
-    floor: "4 Floors",
-    slot: 27,
-  },
-];
+
 
 const Home = () => {
   const [searchValue, setSearchValue] = useState('');
@@ -77,7 +22,7 @@ const Home = () => {
     setSearchValue(e.target.value);
   };
 
-  const filteredCards = cardData.filter((card) => {
+  const filteredCards = PROPERTY.filter((card) => {
     const matchesFilter = selectedFilter === "All" || card.place === selectedFilter;
     const matchesSearch =
       card.title.toLowerCase().includes(searchValue.toLowerCase()) ||
@@ -153,11 +98,11 @@ const Home = () => {
                 <p className="text-[#565656]">
                   Availability: <span className="text-[#1D1D1D] font-semibold">{item.slot} Slot</span>
                 </p>
-                <Link to={`/${item.place}`}>
-                  <Button className="bg-[#2463EB] hover:bg-darkBlue text-white flex items-center gap-2">
+                <Link to={`/home/${item.title}`}>
+                  <button className="bg-[#2463EB] hover:bg-darkBlue text-white flex items-center gap-2 px-4 py-2 rounded">
                     View Details
                     <GoArrowRight className="text-lg" />
-                  </Button>
+                  </button>
                 </Link>
               </div>
             </div>

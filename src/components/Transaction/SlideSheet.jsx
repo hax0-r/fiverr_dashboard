@@ -9,11 +9,13 @@ import { IoIosCloseCircle } from "react-icons/io";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { FaCircleCheck } from 'react-icons/fa6';
 import AlertDialogComp from './AlertDialogComp';
+import AssignRoom from './AssignRoom';
+import TenantProfile from '../Tenant/TenantProfile';
 
 const SlideSheet = ({ booking }) => {
     const [isDeclined, setIsDeclined] = useState(false);
     const [isConfirmed, setIsConfirmed] = useState(false);
-    const [isNotificationVisible, setIsNotificationVisible] = useState(false); // New state
+    const [isNotificationVisible, setIsNotificationVisible] = useState(false);
 
     const handleDecline = () => {
         setIsDeclined(true);
@@ -73,39 +75,8 @@ const SlideSheet = ({ booking }) => {
 
                         <div className="space-y-4 mt-4">
                             {/* Tenant's Profile */}
-                            <Card>
-                                <CardHeader>
-                                    <h3 className="text-lg font-semibold">Tenant's Profile</h3>
-                                </CardHeader>
-                                <CardContent>
-                                    <div className="grid grid-cols-2 gap-4">
-                                        <div>
-                                            <Label className="font-semibold">{booking.name}</Label>
-                                            <p>Rachel Subanto</p>
-                                        </div>
-                                        <div>
-                                            <Label className="font-semibold">Phone Number</Label>
-                                            <p>+60145678901</p>
-                                        </div>
-                                        <div>
-                                            <Label className="font-semibold">ID/IC/Passport</Label>
-                                            <p>18810076</p>
-                                        </div>
-                                        <div>
-                                            <Label className="font-semibold">Email</Label>
-                                            <p>ahmad.farhan@gmail.com</p>
-                                        </div>
-                                        <div>
-                                            <Label className="font-semibold">Date of Birth</Label>
-                                            <p>20 July 2000</p>
-                                        </div>
-                                        <div>
-                                            <Label className="font-semibold">Emergency Contact</Label>
-                                            <p>+60145678933</p>
-                                        </div>
-                                    </div>
-                                </CardContent>
-                            </Card>
+
+                            <TenantProfile booking={booking} />
 
                             {/* Booked Room */}
                             <Card>
@@ -151,7 +122,7 @@ const SlideSheet = ({ booking }) => {
                                         </div>
                                         <div className="">
                                             <Label className="font-medium  text-[#696969]">Amount</Label>
-                                            <p className="text-2xl pt-2 font-semibold font-bold text-[#F26522]">{booking.amount}</p>
+                                            <p className="text-2xl pt-2 font-semibold text-[#F26522]">{booking.amount}</p>
                                         </div>
                                     </div>
                                 </CardContent>
@@ -190,9 +161,9 @@ const SlideSheet = ({ booking }) => {
                         <div className="flex items-center mt-4 justify-end gap-3">
                             {!isConfirmed && !isDeclined && (
                                 <>
-                                    <AlertDialogComp dialog="Decline" btn1="Decline" desc="Are you sure you want to decline this payment?"
+                                    <AlertDialogComp className="border-2 border-red-600 bg-transparent text-red-600 hover:bg-red-600 hover:text-white" dialog="Decline" btn1="Decline" desc="Are you sure you want to decline this payment?"
                                         head="Decline Payment?" onConfirm={handleDecline} />
-                                    <AlertDialogComp dialog="Confirm Payment" btn1="Confirm" desc="Are you sure you want to confirm this payment?"
+                                    <AlertDialogComp className={"border-2 border-blue bg-blue text-white hover:bg-transparent hover:text-blue"} dialog="Confirm Payment" btn1="Confirm" desc="Are you sure you want to confirm this payment?"
                                         head="Confirm Payment?" onConfirm={handleFinalConfirm} />
                                 </>
                             )}
@@ -209,7 +180,9 @@ const SlideSheet = ({ booking }) => {
                                     <SheetClose asChild>
                                         <Button className=" border-2 border-blue hover:bg-blue hover:text-white bg-transparent text-blue px-10">Back</Button>
                                     </SheetClose>
-                                    <Button className="border-2 border-blue bg-blue text-white hover:bg-transparent hover:text-blue px-10">Assign</Button>
+                                    <SheetClose asChild>
+                                        <AssignRoom booking={booking} />
+                                    </SheetClose>
                                 </>
                             )}
                         </div>

@@ -1,0 +1,167 @@
+export const BOOKING = [
+    {
+      id: 'KAIZ88738',
+      name: 'Rachel Subanto',
+      ids: 'UKM123456',
+      type: 'Single',
+      building: 'Hostel A',
+      paymentType: 'Cash Payment',
+      status: 'Paid',
+      amount: 'RM 450',
+      date: '26/08/2024'
+    },
+    {
+      id: 'KIZ88738',
+      name: 'Raachel Subanto',
+      ids: 'UKM123456',
+      type: 'Single',
+      building: 'Hostel A',
+      paymentType: 'Cash Payment',
+      status: 'Booked',
+      amount: 'RM 450',
+      date: '11/07/2024'
+    },
+    {
+      id: 'KIZ88738',
+      name: 'Rachel Subanto',
+      ids: 'UKM123456',
+      type: 'Double',
+      building: 'Hostel A',
+      paymentType: 'Cash Payment',
+      status: 'Waiting Confirmation',
+      amount: 'RM 450',
+      date: '11/07/2024'
+    },
+    {
+      id: 'KAIZ88738',
+      name: 'Rachel Subanto',
+      ids: 'UKM123456',
+      type: 'Single',
+      building: 'Hostel A',
+      paymentType: 'Cash Payment',
+      status: 'Paid',
+      amount: 'RM 450',
+      date: '26/08/2024'
+    },
+    {
+      id: 'KIZ88738',
+      name: 'Raachel Subanto',
+      ids: 'UKM123456',
+      type: 'Single',
+      building: 'Hostel A',
+      paymentType: 'Cash Payment',
+      status: 'Booked',
+      amount: 'RM 450',
+      date: '11/07/2024'
+    },
+    {
+      id: 'KIZ88738',
+      name: 'Rachel Subanto',
+      ids: 'UKM123456',
+      type: 'Double',
+      building: 'Hostel A',
+      paymentType: 'Cash Payment',
+      status: 'Waiting Confirmation',
+      amount: 'RM 450',
+      date: '11/07/2024'
+    },
+    {
+      id: 'KAIZ88738',
+      name: 'Rachel Subanto',
+      ids: 'UKM123456',
+      type: 'Single',
+      building: 'Hostel A',
+      paymentType: 'Cash Payment',
+      status: 'Paid',
+      amount: 'RM 450',
+      date: '26/08/2024'
+    },
+    {
+      id: 'KIZ88738',
+      name: 'Raachel Subanto',
+      ids: 'UKM123456',
+      type: 'Single',
+      building: 'Hostel A',
+      paymentType: 'Cash Payment',
+      status: 'Booked',
+      amount: 'RM 450',
+      date: '11/07/2024'
+    },
+    {
+      id: 'KIZ88738',
+      name: 'Rachel Subanto',
+      ids: 'UKM123456',
+      type: 'Double',
+      building: 'Hostel A',
+      paymentType: 'Cash Payment',
+      status: 'Waiting Confirmation',
+      amount: 'RM 450',
+      date: '11/07/2024'
+    },
+    {
+      id: 'KAIZ88738',
+      name: 'Rachel Subanto',
+      ids: 'UKM123456',
+      type: 'Single',
+      building: 'Hostel A',
+      paymentType: 'Cash Payment',
+      status: 'Paid',
+      amount: 'RM 450',
+      date: '26/08/2024'
+    },
+    {
+      id: 'KIZ88738',
+      name: 'Raachel Subanto',
+      ids: 'UKM123456',
+      type: 'Single',
+      building: 'Hostel A',
+      paymentType: 'Cash Payment',
+      status: 'Booked',
+      amount: 'RM 450',
+      date: '11/07/2024'
+    },
+    {
+      id: 'KIZ88738',
+      name: 'Rachel Subanto',
+      ids: 'UKM123456',
+      type: 'Double',
+      building: 'Hostel A',
+      paymentType: 'Cash Payment',
+      status: 'Waiting Confirmation',
+      amount: 'RM 450',
+      date: '11/07/2024'
+    },
+    {
+      id: 'KAIZ88738',
+      name: 'Rachel Subanto',
+      ids: 'UKM123456',
+      type: 'Single',
+      building: 'Hostel A',
+      paymentType: 'Cash Payment',
+      status: 'Paid',
+      amount: 'RM 450',
+      date: '26/08/2024'
+    },
+    {
+      id: 'KIZ88738',
+      name: 'Raachel Subanto',
+      ids: 'UKM123456',
+      type: 'Single',
+      building: 'Hostel A',
+      paymentType: 'Cash Payment',
+      status: 'Booked',
+      amount: 'RM 450',
+      date: '11/07/2024'
+    },
+    {
+      id: 'KIZ88738',
+      name: 'Rachel Subanto',
+      ids: 'UKM123456',
+      type: 'Double',
+      building: 'Hostel A',
+      paymentType: 'Cash Payment',
+      status: 'Waiting Confirmation',
+      amount: 'RM 450',
+      date: '11/07/2024'
+    },
+  ];
