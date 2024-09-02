@@ -5,7 +5,7 @@ import {
     BreadcrumbList,
     BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import PhotoGrid from '@/components/Property/PhotoGrid';
 import FacilitySelector from '@/components/Property/FacilitySelector';
 import { AiOutlineMinusCircle } from "react-icons/ai";
@@ -23,6 +23,7 @@ import { Textarea } from '@/components/ui/textarea'; // Import shadcn Textarea c
 import { Label } from '@/components/ui/label';
 import { CirclePlus, Trash2 } from 'lucide-react';
 import { GoPlusCircle } from 'react-icons/go';
+import { PROPERTY_DATA } from '@/assets/Property/PropertyData';
 
 const facilities = [
     { name: "Parking Motorbike", icon: FaMotorcycle },
@@ -73,21 +74,23 @@ const AddRoomType = () => {
         '/Assets/Property/AddRoomType/img4.png',
     ];
 
+    const { id } = useParams()
 
-    const [selected, setSelected] = useState("Hostel");
-
-    const handleToggle = (value) => {
-        setSelected(selected === value ? null : value);
-    };
+    let filterData = PROPERTY_DATA.filter((item) => item.id === parseInt(id))
+    const [data] = filterData
 
 
     return (
         <>
-            <div>
+            <div className='animate-myFadeIn'>
                 <Breadcrumb>
                     <BreadcrumbList>
                         <BreadcrumbItem>
                             <Link to="/property" className='text-muted-foreground'>Property List</Link>
+                        </BreadcrumbItem>
+                        <BreadcrumbSeparator className="scale-150 mx-1" />
+                        <BreadcrumbItem>
+                            <Link to={`/property/${id}`} className='text-muted-foreground'>{data.title}</Link>
                         </BreadcrumbItem>
                         <BreadcrumbSeparator className="scale-150 mx-1" />
                         <BreadcrumbItem>

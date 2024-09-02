@@ -18,7 +18,7 @@ const DetailProperty = () => {
 
     return (
         <>
-            <div className="">
+            <div className="animate-myFadeIn">
                 <Breadcrumb>
                     <BreadcrumbList>
                         <BreadcrumbItem>
@@ -152,7 +152,9 @@ const DetailProperty = () => {
                                     <Link to={"add-room-type"}>
                                         <Button className="px-14 py-5 font-medium bg-transparent text-blue border-2 border-blue hover:bg-blue hover:text-white text-[1rem]">Edit</Button>
                                     </Link>
-                                    <Button className="px-9 py-5 font-medium hover:bg-transparent hover:text-blue border-2 border-blue bg-blue text-white text-[1rem]">Room List</Button>
+                                    <Link to={'room-list'}>
+                                        <Button className="px-9 py-5 font-medium hover:bg-transparent hover:text-blue border-2 border-blue bg-blue text-white text-[1rem]">Room List</Button>
+                                    </Link>
                                 </div>
                             </div>
                         </div>

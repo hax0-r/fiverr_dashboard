@@ -17,7 +17,7 @@ import RoomSelection from '../Tenant/RoomSelection';
 import { ROOM_SELECTED } from '@/assets/RoomSelected';
 
 
-const AssignRoom = ({ booking }) => {
+const AssignRoom = ({ booking, btnName }) => {
     const { toast } = useToast();
     const [currentStep, setCurrentStep] = useState(1);
     const [isSheetOpen, setIsSheetOpen] = useState(false);
@@ -40,7 +40,12 @@ const AssignRoom = ({ booking }) => {
             <div>
                 <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
                     <SheetTrigger asChild>
-                        <a href="#" className="text-white px-8 hover:bg-darkBlue p-[10px] rounded-md bg-blue">Details</a>
+                        <a href="#" className="text-white transition-all px-6 hover:bg-darkBlue p-[10px] rounded-md bg-blue">
+                            {
+                                btnName === "Transfer" ? "Transfer" : "Details"
+                            }
+
+                        </a>
                     </SheetTrigger>
                     <SheetContent className="px-3">
                         <div className="">
