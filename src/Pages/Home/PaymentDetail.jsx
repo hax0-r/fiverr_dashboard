@@ -1,16 +1,16 @@
+import React from 'react';
+import { useParams, Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
-import React, { useState } from 'react';
-import { FaArrowLeftLong } from 'react-icons/fa6';
-import { Link, useParams } from 'react-router-dom';
-import { PLACES } from '@/assets/Home/Places';
-import { PROPERTY } from '@/assets/Home/Property';
 import HomeRoomDetails from '@/components/Home/HomeRoomDetails';
 import { PiCopySimple } from 'react-icons/pi';
 import { GoUpload } from 'react-icons/go';
 import { RiDeleteBinLine } from 'react-icons/ri';
 import { IoImageOutline } from 'react-icons/io5';
 import PaymentNotes from '@/components/Home/PaymentNotes';
+import { usePaymentContext } from '@/context/PaymentContext';
+import { PLACES } from '@/assets/Home/Places';
+import { FaArrowLeftLong } from 'react-icons/fa6';
 
 const PaymentDetail = () => {
     const banks = [
@@ -34,33 +34,30 @@ const PaymentDetail = () => {
         },
     ];
 
+    const { selectedMethod, handleMethodSelect, uploadedFile, handleFileChange, handleFileDelete } = usePaymentContext();
     const { placeName, subCardId } = useParams();
-    const filterData = PLACES.filter((item) => item.id === parseInt(subCardId));
-    const filterData2 = PROPERTY.filter((item) => item.id === parseInt(subCardId));
 
-    const [room] = filterData;
-    const [room2] = filterData2;
 
-    const [uploadedFile, setUploadedFile] = useState(null);
-    const [selectedMethod, setSelectedMethod] = useState('Transfer'); // State to manage selected payment method
+    // const [uploadedFile, setUploadedFile] = useState(null);
+    // const [selectedMethod, setSelectedMethod] = useState('Transfer'); // State to manage selected payment method
 
-    // Handle file upload
-    const handleFileChange = (e) => {
-        const file = e.target.files[0];
-        if (file) {
-            setUploadedFile(file);
-        }
-    };
+    // // Handle file upload
+    // const handleFileChange = (e) => {
+    //     const file = e.target.files[0];
+    //     if (file) {
+    //         setUploadedFile(file);
+    //     }
+    // };
 
-    // Handle file delete
-    const handleFileDelete = () => {
-        setUploadedFile(null);
-    };
+    // // Handle file delete
+    // const handleFileDelete = () => {
+    //     setUploadedFile(null);
+    // };
 
-    // Handle payment method selection
-    const handleMethodSelect = (method) => {
-        setSelectedMethod(method);
-    };
+    // // Handle payment method selection
+    // const handleMethodSelect = (method) => {
+    //     setSelectedMethod(method);
+    // };
 
     return (
         <div>

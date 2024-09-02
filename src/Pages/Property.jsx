@@ -1,78 +1,11 @@
+import { PROPERTY_DATA } from '@/assets/Property/PropertyData';
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import React, { useState } from 'react'
 import { IoSearchOutline } from 'react-icons/io5'
 import { Link } from 'react-router-dom';
 
-const cardData = [
-  {
-    id: 1,
-    img: "./Assets/Property/img1.png",
-    title: "Kolej Ibu Zain (KIZ)",
-    place: "Hostels",
-    location: "No. 15, Jalan Gaya, 88000 Kota Kinabalu, Sabah, Malaysia",
-    floor: "4 Floors",
-    totalSlot: 73,
-    bookedSlot: 27,
-    roomsOrBeds: "Beds",
-  },
-  {
-    id: 2,
-    img: "./Assets/Property/img2.png",
-    title: "Asrama Kenanga",
-    place: "Hostels",
-    location: "No. 78, Lorong Pulau Tikus, 10350 George Town, Pulau Pinang, Malaysia",
-    floor: "4 Floors",
-    vip: "VIP",
-    totalSlot: 73,
-    bookedSlot: 52,
-    roomsOrBeds: "Beds",
-  },
-  {
-    id: 3,
-    img: "./Assets/Property/img3.png",
-    title: "Apartement",
-    place: "Apartement",
-    location: "No. 18, Jalan Hang Lekiu, 75200 Melaka, Melaka, Malaysia",
-    // floor: "2 Floors",
-    totalSlot: 10,
-    bookedSlot: 5,
-    roomsOrBeds: "Rooms",
-  },
-  {
-    id: 4,
-    img: "./Assets/Property/img4.png",
-    title: "Dahlia Apartement",
-    place: "Apartement",
-    location: "No. 18, Jalan Hang Lekiu, 75200 Melaka, Melaka, Malaysia",
-    // floor: "2 Floors",
-    totalSlot: 12,
-    bookedSlot: 9,
-    roomsOrBeds: "Rooms",
-  },
-  {
-    id: 5,
-    img: "./Assets/Property/img5.png",
-    title: "Asrama Cempaka",
-    place: "Hostels",
-    location: "No. 18, Jalan Hang Lekiu, 75200 Melaka, Melaka, Malaysia",
-    floor: "4 Floors",
-    totalSlot: 73,
-    bookedSlot: 27,
-    roomsOrBeds: "Beds",
-  },
-  {
-    id: 6,
-    img: "./Assets/Property/img6.png",
-    title: "Asrama Cempaka",
-    place: "Hostels",
-    location: "No. 18, Jalan Hang Lekiu, 75200 Melaka, Melaka, Malaysia",
-    floor: "2 Floors",
-    totalSlot: 73,
-    bookedSlot: 27,
-    roomsOrBeds: "Beds",
-  },
-];
+
 
 const Property = () => {
   const [searchValue, setSearchValue] = useState('');
@@ -81,7 +14,7 @@ const Property = () => {
     setSearchValue(e.target.value);
   };
 
-  const filteredData = cardData.filter(item =>
+  const filteredData = PROPERTY_DATA.filter(item =>
     item.title.toLowerCase().includes(searchValue.toLowerCase()) ||
     item.location.toLowerCase().includes(searchValue.toLowerCase()) ||
     item.place.toLowerCase().includes(searchValue.toLowerCase())
@@ -141,7 +74,7 @@ const Property = () => {
                 <p className="text-[#565656]">
                   Availability: <span className="text-[#1D1D1D] font-semibold">{item.bookedSlot}/{item.totalSlot} {item.roomsOrBeds}</span>
                 </p>
-                <Link to={`/${item.place}`}>
+                <Link to={`/property/${item.id}`}>
                   <Button className="bg-transparent px-6 border-[1.5px] border-blue hover:bg-blue hover:text-white text-blue font-semibold py-[18px] pt-[21px]">
                     View Details
                   </Button>

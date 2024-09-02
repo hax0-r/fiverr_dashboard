@@ -1,66 +1,12 @@
 import { Button } from '@/components/ui/button';
 import { Card, CardTitle } from '@/components/ui/card';
 import React, { useState } from 'react';
-import { FaArrowLeftLong } from 'react-icons/fa6';
 import { Link, useParams } from 'react-router-dom';
-import { PLACES } from '@/assets/Home/Places';
-import { PROPERTY } from '@/assets/Home/Property';
 import HomeRoomDetails from '@/components/Home/HomeRoomDetails';
-import { PiClockCountdownBold, PiClockCountdownDuotone, PiCopySimple } from 'react-icons/pi';
-import { GoUpload } from 'react-icons/go';
-import { RiDeleteBinLine } from 'react-icons/ri';
-import { IoImageOutline } from 'react-icons/io5';
-import PaymentNotes from '@/components/Home/PaymentNotes';
+import { PiClockCountdownDuotone } from 'react-icons/pi';
 
 const PaymentConfirmed = () => {
-    const banks = [
-        {
-            name: 'Maybank',
-            accountName: 'Kolej Ibu Zain',
-            accountNumber: '0014-1477-1992-203',
-            logo: '/Assets/Home/Places/SubPlaces/bank1.png',
-        },
-        {
-            name: 'Affin Bank',
-            accountName: 'Kolej Ibu Zain',
-            accountNumber: '0014-1477-1992-203',
-            logo: '/Assets/Home/Places/SubPlaces/bank2.png',
-        },
-        {
-            name: 'OCBC',
-            accountName: 'Kolej Ibu Zain',
-            accountNumber: '0014-1477-1992-203',
-            logo: '/Assets/Home/Places/SubPlaces/bank3.png',
-        },
-    ];
 
-    const { placeName, subCardId } = useParams();
-    const filterData = PLACES.filter((item) => item.id === parseInt(subCardId));
-    const filterData2 = PROPERTY.filter((item) => item.id === parseInt(subCardId));
-
-    const [room] = filterData;
-    const [room2] = filterData2;
-
-    const [uploadedFile, setUploadedFile] = useState(null);
-    const [selectedMethod, setSelectedMethod] = useState('Transfer'); // State to manage selected payment method
-
-    // Handle file upload
-    const handleFileChange = (e) => {
-        const file = e.target.files[0];
-        if (file) {
-            setUploadedFile(file);
-        }
-    };
-
-    // Handle file delete
-    const handleFileDelete = () => {
-        setUploadedFile(null);
-    };
-
-    // Handle payment method selection
-    const handleMethodSelect = (method) => {
-        setSelectedMethod(method);
-    };
 
     return (
         <div>
@@ -81,6 +27,7 @@ const PaymentConfirmed = () => {
                         </div>
 
                         <HomeRoomDetails />
+
 
                         <Card className="p-3 border-[1.33px] border-[#cfd1d4] flex flex-col gap-3 mt-5">
                             <CardTitle className="text-lg">Information Tenant</CardTitle>
@@ -107,15 +54,6 @@ const PaymentConfirmed = () => {
                             <CardTitle className="text-lg">Proof of Transfer</CardTitle>
                             <img src="./" alt="imgFromBackend" />
                         </Card>
-
-
-
-
-
-                        {selectedMethod === 'Cash' && (
-                            <PaymentNotes />
-                        )}
-
 
                         <div className="">
                             <Link to={`/home`} >

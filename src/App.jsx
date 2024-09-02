@@ -5,6 +5,7 @@ import DashboardRoutes from './Router/DashboardRoutes';
 import DashBoardHeader from './components/ui/DashBoardHeader';
 import DashboardSliderLinks from './components/ui/DashboardSliderLinks';
 import { useLocation } from 'react-router-dom';
+import { PaymentProvider } from './Context/PaymentContext';
 
 const App = () => {
   const location = useLocation();
@@ -18,18 +19,20 @@ const App = () => {
 
   return (
     <>
-      {!isDashboardRoute && <MainRouter />}
-      {isDashboardRoute && (
-        <>
-          <DashBoardHeader />
-          <div className="flex justify-start items-start">
-            <DashboardSliderLinks />
-            <div className="p-5 pl-32 pt-28 w-full">
-              <DashboardRoutes />
+      <PaymentProvider>
+        {!isDashboardRoute && <MainRouter />}
+        {isDashboardRoute && (
+          <>
+            <DashBoardHeader />
+            <div className="flex justify-start items-start">
+              <DashboardSliderLinks />
+              <div className="p-5 pl-32 pt-28 w-full">
+                <DashboardRoutes />
+              </div>
             </div>
-          </div>
-        </>
-      )}
+          </>
+        )}
+      </PaymentProvider>
     </>
   );
 };

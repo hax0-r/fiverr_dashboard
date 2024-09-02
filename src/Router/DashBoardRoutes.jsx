@@ -3,6 +3,8 @@ import AddProperty from '@/Pages/AddProperty';
 import Dashboard from '@/Pages/Dashboard';
 import DashboardHome from '@/Pages/DashboardHome';
 import Property from '@/Pages/Property';
+import AddRoomType from '@/Pages/Property/AddRoomType';
+import DetailProperty from '@/Pages/Property/DetailProperty';
 import Setting from '@/Pages/Setting';
 import Tenant from '@/Pages/Tenant';
 import TransactionList from '@/Pages/Transaction-list';
@@ -15,6 +17,8 @@ const DashboardRoutes = () => {
             <Route path="/dashboard-home" element={<DashboardHome />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/property" element={<Property />} />
+            <Route path="/property/:id" element={<DetailProperty />} />
+            <Route path="/property/:id/add-room-type" element={<AddRoomType />} />
             <Route path="/property/add-property" element={<AddProperty />} />
             <Route path="/tenant" element={<Tenant />} />
             <Route path="/transaction-list" element={<TransactionList />} />

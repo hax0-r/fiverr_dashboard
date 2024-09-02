@@ -67,7 +67,7 @@ const AddProperty = () => {
                 <div className='mt-7 flex gap-4 items-start'>
                     <div className="max-w-md p-3 rounded-xl border-[1.5px] border-[#CFD1D4]">
                         <h2 className='text-xl font-bold pb-3 pt-2'>Property Photos</h2>
-                        <PhotoGrid photos={photos} />
+                        <PhotoGrid photos={photos} grid={3} />
                         <div className="h-[1px] w-full bg-[#CFD1D4] mt-5"></div>
                         <h2 className='text-xl font-bold pb-3 pt-5'>Shared Facilities</h2>
                         <FacilitySelector facilities={facilities} />
