@@ -7,6 +7,7 @@ import { PiElevator } from 'react-icons/pi'
 import { SlLocationPin } from 'react-icons/sl'
 import { Link, useParams } from 'react-router-dom'
 import { Button } from '@/components/ui/button';
+import { FiPlus } from 'react-icons/fi';
 
 const DetailProperty = () => {
 
@@ -19,17 +20,24 @@ const DetailProperty = () => {
     return (
         <>
             <div className="animate-myFadeIn">
-                <Breadcrumb>
-                    <BreadcrumbList>
-                        <BreadcrumbItem>
-                            <Link to="/property" className='text-muted-foreground'>Property List</Link>
-                        </BreadcrumbItem>
-                        <BreadcrumbSeparator className="scale-150 mx-1" />
-                        <BreadcrumbItem>
-                            <Link to="/property/add-property" className='text-blue'>{data.title}</Link>
-                        </BreadcrumbItem>
-                    </BreadcrumbList>
-                </Breadcrumb>
+                <div className="flex items-center justify-between">
+
+                    <Breadcrumb>
+                        <BreadcrumbList>
+                            <BreadcrumbItem>
+                                <Link to="/property" className='text-muted-foreground'>Property List</Link>
+                            </BreadcrumbItem>
+                            <BreadcrumbSeparator className="scale-150 mx-1" />
+                            <BreadcrumbItem>
+                                <Link to="/property/add-property" className='text-blue'>{data.title}</Link>
+                            </BreadcrumbItem>
+                        </BreadcrumbList>
+                    </Breadcrumb>
+
+                    <Link to={'room-list'}>
+                        <Button className="pl-3 py-5 font-medium flex items-center gap-2 hover:bg-transparent hover:text-blue border-2 border-blue bg-blue text-white text-[1rem]"><FiPlus className='text-2xl' />Add Room Type</Button>
+                    </Link>
+                </div>
 
                 <div className="">
                     <div className="mt-8 p-4 bg-[#fafafa] rounded-lg  ">

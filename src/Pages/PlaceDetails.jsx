@@ -33,7 +33,7 @@ const PlaceDetails = () => {
 
   return (
     <div className="">
-      <div className="bg-blue p-5 pt-10">
+      <div className="bg-blue sm:px-5 p-5 px-0  pt-10">
         <div className="container flex items-center gap-4">
           <Link to={"/home"}>
             <FaArrowLeftLong className="bg-[#5082ef] p-3 text-5xl rounded-full text-white" />
@@ -58,8 +58,8 @@ const PlaceDetails = () => {
         ))}
       </div>
 
-      <div className="container">
-        <div className="mt-6 mb-20 flex items-center flex-wrap justify-center gap-4">
+      <div className="sm:container">
+        <div className="mt-6 mb-20 sm:p-0 p-4  flex items-center flex-wrap justify-center gap-4">
           {filteredPlaces.map((item) => (
             <div className="max-w-md transition-all animate-myFadeIn" key={item.id}>
               <div className="border-[1.33px] border-[#cfd1d4] p-3 rounded-xl flex gap-4 flex-col">
@@ -97,7 +97,7 @@ const PlaceDetails = () => {
                   </div>
                 </div>
                 <div className="flex justify-between pb-2 px-1 items-center">
-                  <p className="text-[#FA5501] text-xl font-bold">RM 1200/6 months</p>
+                  <p className="text-[#FA5501] sm:text-xl text-lg font-bold">RM 1200/6 months</p>
                   <Link to={`/home/${placeName}/${item.id}`}>
                     <Button className="bg-[#2463EB] hover:bg-darkBlue font-semibold tracking-wider text-white flex items-center gap-2 px-6 py-6 rounded-lg">
                       Rent

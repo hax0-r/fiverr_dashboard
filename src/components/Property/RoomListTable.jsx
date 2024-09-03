@@ -6,6 +6,7 @@ import { FaChevronDown } from 'react-icons/fa';
 import { Input } from '../ui/input';
 import { IoSearchOutline } from 'react-icons/io5';
 import { DropdownMenu, DropdownMenuItem, DropdownMenuContent, DropdownMenuTrigger } from '../ui/dropdown-menu';
+import { HiMiniBars3 } from "react-icons/hi2";
 import {
     Pagination,
     PaginationContent,
@@ -15,7 +16,7 @@ import {
     PaginationPrevious,
 } from "@/components/ui/pagination";
 import { ROOM_LIST } from '@/assets/Property/RoomList'; // Replace with your actual ROOM_LIST import
-import { PiBed, PiBuildings, PiCaretRight, PiPencilSimpleLine, PiStackSimple } from 'react-icons/pi';
+import { PiBed, PiBuildings, PiCaretRight, PiPencilSimpleLine, PiSquaresFour, PiStackSimple } from 'react-icons/pi';
 import { Breadcrumb, BreadcrumbItem, BreadcrumbList, BreadcrumbSeparator } from '../ui/breadcrumb';
 import { Link, useParams } from 'react-router-dom';
 import { PROPERTY_DATA } from '@/assets/Property/PropertyData';
@@ -106,6 +107,17 @@ const RoomListTable = () => {
                                 </DropdownMenu>
                             </div>
                         ))}
+                        <div className="flex items-center gap-4 text-nowrap">
+                            View
+                            <div className="flex items-center border-[1.4px] border-zinc-300 rounded-lg">
+                                <Button className="rounded-r-none p-3 bg-transparent hover:bg-[dbeafe]">
+                                    <PiSquaresFour className='text-lg text-black' />
+                                </Button>
+                                <Button className="rounded-l-none p-3 bg-blue  hover:bg-[dbeafe]">
+                                    <HiMiniBars3 className='text-lg text-white' />
+                                </Button>
+                            </div>
+                        </div>
                     </div>
                 </div>
 

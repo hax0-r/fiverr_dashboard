@@ -3,7 +3,7 @@ import { PROPERTY } from '@/assets/Home/Property';
 import React from 'react';
 import { useParams } from 'react-router-dom';
 
-const HomeRoomDetails = ({ checkInDate, checkOutDate, formatDate }) => {
+const HomeRoomDetails = ({ checkInDate, checkOutDate, formatDate, method }) => {
     const { placeName, subCardId } = useParams();
 
     const filterData = PLACES.filter((item) => item.id === parseInt(subCardId));
@@ -29,24 +29,20 @@ const HomeRoomDetails = ({ checkInDate, checkOutDate, formatDate }) => {
             </div>
 
             <div className="border-[1.33px] border-[#cfd1d4] border-t-0 p-3 rounded-b-lg ">
-                <>
-                    <div className="flex justify-between items-center">
-                        <span className="text-[#1D1D1D] font-semibold">Payment Method</span>
-                        <p className="text-[#FA5501] text-lg font-semibold">
-                            cash / transfer
-                        </p>
-                    </div>
-                    <div className="flex justify-between items-center">
-                        <span className="text-[#1D1D1D] font-bold">Total Price</span>
-                        <p className="text-[#FA5501] text-xl font-semibold">
-                            RM 1200/6 month
-                        </p>
-                    </div>
-                </>
+                {
+                    method && (
+                        <div className="flex justify-between items-center">
+                            <span className="text-[#1D1D1D] font-bold">Payment method</span>
+                            <p className="text-[#FA5501] text-xl font-semibold">
+                                {method}
+                            </p>
+                        </div>
+                    )
+                }
                 <div className="flex justify-between items-center">
                     <span className="text-[#1D1D1D] font-bold">Total Price</span>
                     <p className="text-[#FA5501] text-xl font-semibold">
-                        RM 1200/6 month
+                        RM 1200
                     </p>
                 </div>
             </div>

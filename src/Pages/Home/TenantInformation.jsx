@@ -38,7 +38,7 @@ const TenantInformation = () => {
 
       <div className="bg-[#eff6ff]">
         <div className="max-w-[960px] mx-auto p-4 min-h-[85vh] bg-white">
-          <Card className="overflow-hidden border-none">
+          <Card className="overflow-hidden border-none shadow-none">
             <div className="">
               <div className="grid grid-cols-2 gap-4 mt-4">
                 <div>
@@ -74,21 +74,19 @@ const TenantInformation = () => {
               <div className="grid grid-cols-2 gap-4 mt-1">
                 <Button
                   onClick={() => handleGenderClick('Male')}
-                  className={`py-6 hover:bg- border-[1.5px] ${
-                    selectedGender === 'Male'
-                      ? 'bg-[#eff6ff] text-blue border-blue'
-                      : 'bg-transparent  border-zinc-200 text-zinc-600'
-                  }`}
+                  className={`py-6 hover:bg- border-[1.5px] ${selectedGender === 'Male'
+                    ? 'bg-[#eff6ff] text-blue border-blue'
+                    : 'bg-transparent  border-zinc-200 text-zinc-600'
+                    }`}
                 >
                   Male
                 </Button>
                 <Button
                   onClick={() => handleGenderClick('Female')}
-                  className={`py-6 hover:bg- border-[1.5px] ${
-                    selectedGender === 'Female'
-                      ? 'bg-[#eff6ff] text-blue border-blue'
-                      : 'bg-transparent  border-zinc-200 text-zinc-600'
-                  }`}
+                  className={`py-6 hover:bg- border-[1.5px] ${selectedGender === 'Female'
+                    ? 'bg-[#eff6ff] text-blue border-blue'
+                    : 'bg-transparent  border-zinc-200 text-zinc-600'
+                    }`}
                 >
                   Female
                 </Button>
@@ -118,12 +116,16 @@ const TenantInformation = () => {
               </div>
             </div>
 
-            <div className="mt-10">
-              <Link to={`payment-detail`}>
-                <Button className="bg-[#2463EB] mt-4 w-full justify-center hover:bg-darkBlue text-white flex items-center tracking-wide gap-2 px-4 py-7 rounded-full text-[1rem]">
-                  Go to Payment
-                </Button>
-              </Link>
+            <div className="py-12"></div>
+
+            <div className="fixed bottom-0 max-w-[944px] mx-auto py-4 pr-4 bg-white  w-full">
+              <div className="">
+                <Link to={`payment-detail`}>
+                  <Button className="bg-[#2463EB] mt-4 w-full justify-center hover:bg-darkBlue text-white flex items-center tracking-wide gap-2 px-4 py-7 rounded-full text-[1rem]">
+                    Go to Payment
+                  </Button>
+                </Link>
+              </div>
             </div>
           </Card>
         </div>

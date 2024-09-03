@@ -35,7 +35,7 @@ const Home = () => {
       <div className="">
         <div className="relative">
           <img src="./Assets/Home/heroBg.png" className="w-full h-[300px] absolute -z-10" alt="bg" />
-          <div className="z-10 flex justify-center items-center h-[300px] flex-col max-w-lg mx-auto gap-6">
+          <div className="z-10 px-5 sm:px-0 flex justify-center items-center h-[300px] flex-col max-w-lg mx-auto gap-6">
             <img src="./Assets/Global/logo.svg" alt="logo" />
             <div className="relative flex justify-center items-center w-full">
               <Input
@@ -50,8 +50,8 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="max-w-[57rem] mx-auto mt-10">
-        <div className="flex items-center gap-2">
+      <div className="max-w-[58rem] mx-auto mt-10">
+        <div className="flex flex-wrap px-5 sm:px-0 items-center gap-2">
           {filterItems.map(({ title }, index) => (
             <p
               key={index}
@@ -66,7 +66,7 @@ const Home = () => {
           ))}
         </div>
 
-        <div className="mt-6 mb-20 flex justify-center items-center flex-wrap gap-4">
+        <div className="mt-6 px-2 mb-20 flex justify-center items-center flex-wrap gap-4">
           {filteredCards.map((item) => (
             <div className="max-w-md transition-all animate-myFadeIn" key={item.id}>
               <div className="border-[1.33px] border-[#cfd1d4] p-3 rounded-t-xl flex gap-4">

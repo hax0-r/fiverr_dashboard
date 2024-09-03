@@ -53,7 +53,7 @@ const SubPlaceDetails = () => {
   return (
     <div>
       <div className="bg-[#eff6ff]">
-        <div className="max-w-[960px] mx-auto px-4">
+        <div className="max-w-[960px] mx-auto px-4 pb-24">
           <Card className=" overflow-hidden rounded-none ">
             <div className="relative">
               <img
@@ -181,7 +181,7 @@ const SubPlaceDetails = () => {
             </div>
           </Card>
         </div>
-        <div className="bg-white w-full p-5 border-t-2 border-zinc-200">
+        <div className="bg-white w-full p-5 fixed z-50 bottom-0 left-0 border-t-2 border-zinc-200">
           <div className="max-w-[960px] mx-auto px-4 flex justify-end items-center gap-5">
             <h2 className="text-[#FA5501] text-xl font-bold">RM 1200/6 month</h2>
             <Link to={"select-date"}>

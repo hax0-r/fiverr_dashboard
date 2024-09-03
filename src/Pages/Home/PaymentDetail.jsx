@@ -35,29 +35,8 @@ const PaymentDetail = () => {
     ];
 
     const { selectedMethod, handleMethodSelect, uploadedFile, handleFileChange, handleFileDelete } = usePaymentContext();
-    const { placeName, subCardId } = useParams();
 
-
-    // const [uploadedFile, setUploadedFile] = useState(null);
-    // const [selectedMethod, setSelectedMethod] = useState('Transfer'); // State to manage selected payment method
-
-    // // Handle file upload
-    // const handleFileChange = (e) => {
-    //     const file = e.target.files[0];
-    //     if (file) {
-    //         setUploadedFile(file);
-    //     }
-    // };
-
-    // // Handle file delete
-    // const handleFileDelete = () => {
-    //     setUploadedFile(null);
-    // };
-
-    // // Handle payment method selection
-    // const handleMethodSelect = (method) => {
-    //     setSelectedMethod(method);
-    // };
+    
 
     return (
         <div>
@@ -155,12 +134,17 @@ const PaymentDetail = () => {
                             </div>
                         )}
 
-                        <div className="">
-                            <Link to={`payment-confirmed`} >
-                                <Button className="bg-[#2463EB] mt-4 w-full justify-center hover:bg-darkBlue text-white flex items-center tracking-wide gap-2 px-4 py-7 rounded-full text-[1rem]">
-                                    Continue
-                                </Button>
-                            </Link>
+                        <div className="py-12"></div>
+
+
+                        <div className="fixed bottom-0 max-w-[944px] mx-auto py-4 pr-4 bg-white  w-full">
+                            <div className="">
+                                <Link to={`payment-confirmed`} >
+                                    <Button className="bg-[#2463EB] mt-4 w-full justify-center hover:bg-darkBlue text-white flex items-center tracking-wide gap-2 px-4 py-7 rounded-full text-[1rem]">
+                                        Continue
+                                    </Button>
+                                </Link>
+                            </div>
                         </div>
                     </Card>
                 </div>

@@ -9,7 +9,9 @@ export const PaymentProvider = ({ children }) => {
 
     const handleMethodSelect = (method) => {
         setSelectedMethod(method);
+        
     };
+
 
     const handleFileChange = (file) => {
         setUploadedFile(file);

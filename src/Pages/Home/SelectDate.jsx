@@ -60,9 +60,9 @@ const SelectDate = () => {
                 </div>
             </div>
 
-            <div className="bg-[#eff6ff]">
-                <div className="max-w-[960px] mx-auto p-4 bg-white">
-                    <Card className="overflow-hidden border-none ">
+            <div className="bg-[#eff6ff] ">
+                <div className="max-w-[960px]  mx-auto p-4 bg-white">
+                    <Card className="overflow-hidden relative border-none ">
                         <div className="grid grid-cols-3 p-2 border rounded gap-2">
                             <Button
                                 onClick={() => handleOptionClick('Daily')}
@@ -108,12 +108,15 @@ const SelectDate = () => {
                             checkOutDate={checkOutDate}
                             formatDate={formatDate}
                         />
+                        <div className="py-12"></div>
 
-                        <Link to={`tenant-information`} >
-                            <Button className="bg-[#2463EB] mt-4 w-full justify-center hover:bg-darkBlue text-white flex items-center tracking-wide gap-2 px-4 py-7 rounded-full text-[1rem]">
-                                Continue
-                            </Button>
-                        </Link>
+                        <div className="fixed bottom-0 max-w-[944px] mx-auto py-4 pr-4 bg-white  w-full">
+                            <Link to={`tenant-information`} >
+                                <Button className="bg-[#2463EB] mt-4 w-full justify-center hover:bg-darkBlue text-white flex items-center tracking-wide gap-2 px-4 py-7 rounded-full text-[1rem]">
+                                    Continue
+                                </Button>
+                            </Link>
+                        </div>
                     </Card>
                 </div>
             </div>
