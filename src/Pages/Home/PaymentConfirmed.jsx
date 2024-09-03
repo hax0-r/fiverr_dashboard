@@ -19,11 +19,11 @@ const PaymentConfirmed = () => {
                     <Card className="overflow-hidden border-none shadow-none">
                         {
                             selectedMethod === "Transfer" ?
-                                <div className="flex justify-center items-center gap-2 flex-col my-10 ">
+                                <div className="flex justify-center items-center gap-2 flex-col my-10 sm:mb-10 mb-5 ">
                                     <PiClockCountdownDuotone className='text-6xl text-[#169D00] bg-[#F0FFED] p-2 rounded-full' />
                                     <div className="text-center">
                                         <h2 className='text-lg font-semibold'>Waiting for Payment Confirmation</h2>
-                                        <p className='text-[#1D1D1D]'>We will send the receipt to your email if the payment is successful</p>
+                                        <p className=' text-[#1D1D1D]'>We will send the receipt to your email if the payment is successful</p>
                                     </div>
                                 </div>
                                 :
@@ -40,7 +40,10 @@ const PaymentConfirmed = () => {
                             <p className='text-2xl text-blue font-semibold'>KIZ-8479</p>
                         </div>
 
-                        <HomeRoomDetails method={selectedMethod} />
+                        <div className="mt-5">
+
+                            <HomeRoomDetails method={selectedMethod} />
+                        </div>
 
 
                         <Card className="p-3 border-[1.33px] border-[#cfd1d4] flex flex-col gap-3 mt-5">

@@ -27,7 +27,7 @@ const TenantInformation = () => {
 
   return (
     <div>
-      <div className="bg-blue p-5 pt-10">
+      <div className="bg-blue p-5 sm:px-5 px-0 pt-10">
         <div className="container flex items-center gap-4">
           <Link to={"/home"}>
             <FaArrowLeftLong className="bg-[#5082ef] p-3 text-5xl rounded-full text-white" />
@@ -40,7 +40,7 @@ const TenantInformation = () => {
         <div className="max-w-[960px] mx-auto p-4 min-h-[85vh] bg-white">
           <Card className="overflow-hidden border-none shadow-none">
             <div className="">
-              <div className="grid grid-cols-2 gap-4 mt-4">
+              <div className="grid sm:grid-cols-2 grid-cols-1 gap-4 mt-4">
                 <div>
                   <Label className="font-semibold text-[#696969]" htmlFor="">ID (ID Student/IC/Passport)</Label>
                   <Input id="" placeholder="Enter Id" className="mt-1" />
@@ -53,7 +53,7 @@ const TenantInformation = () => {
             </div>
             <div className="">
               <h2 className='font-semibold text-lg mt-6'>Date of Birth</h2>
-              <div className="grid grid-cols-3 gap-4 mt-1">
+              <div className="grid grid-cols-3 sm:gap-4 gap-2 mt-1">
                 <div>
                   <Label className="font-semibold text-[#696969]" htmlFor="">Day</Label>
                   <Input id="" placeholder="Enter Day" className="mt-1" />
@@ -71,7 +71,7 @@ const TenantInformation = () => {
 
             <div className="">
               <h2 className='font-medium mt-8'>Gender</h2>
-              <div className="grid grid-cols-2 gap-4 mt-1">
+              <div className="grid grid-cols-2 sm:gap-4 gap-2 mt-1">
                 <Button
                   onClick={() => handleGenderClick('Male')}
                   className={`py-6 hover:bg- border-[1.5px] ${selectedGender === 'Male'
@@ -94,7 +94,7 @@ const TenantInformation = () => {
             </div>
 
             <div className="mt-8">
-              <div className="grid grid-cols-3 gap-4 mt-1">
+              <div className="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-4 mt-1">
                 <div>
                   <Label className="font-semibold text-[#696969]" htmlFor="">Email</Label>
                   <Input id="" placeholder="azri.razali@gmail.com" className="mt-1" />

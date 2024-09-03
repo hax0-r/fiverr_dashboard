@@ -40,7 +40,7 @@ const PaymentDetail = () => {
 
     return (
         <div>
-            <div className="bg-blue p-5 pt-10">
+            <div className="bg-blue p-5 sm:px-5 px-0 pt-10">
                 <div className="container flex items-center gap-4">
                     <Link to={"/home"}>
                         <FaArrowLeftLong className="bg-[#5082ef] p-3 text-5xl rounded-full text-white" />
@@ -56,15 +56,15 @@ const PaymentDetail = () => {
 
                         <h2 className='font-semibold text-lg mt-6'>Payment Method</h2>
 
-                        <div className="grid grid-cols-2 p-2 border-[1.5px] border-[#BFDBFE] rounded-lg mt-3 gap-2">
+                        <div className="grid grid-cols-2 sm:p-2 p-1 border-[1.5px] border-[#BFDBFE] rounded-lg mt-3 gap-2">
                             <Button
-                                className={`p-7 text-[1rem] font-semibold ${selectedMethod === 'Transfer' ? 'bg-[#dbeafe]' : 'bg-white'} text-blue hover:bg-[#dbeafe]`}
+                                className={`sm:p-7 p-6 text-[1rem] font-semibold ${selectedMethod === 'Transfer' ? 'bg-[#dbeafe]' : 'bg-white'} text-blue hover:bg-[#dbeafe]`}
                                 onClick={() => handleMethodSelect('Transfer')}
                             >
                                 Transfer
                             </Button>
                             <Button
-                                className={`p-7 text-[1rem] font-semibold ${selectedMethod === 'Cash' ? 'bg-[#dbeafe]' : 'bg-white'} text-blue hover:bg-[#dbeafe]`}
+                                className={`sm:p-7 p-6 text-[1rem] font-semibold ${selectedMethod === 'Cash' ? 'bg-[#dbeafe]' : 'bg-white'} text-blue hover:bg-[#dbeafe]`}
                                 onClick={() => handleMethodSelect('Cash')}
                             >
                                 Cash
@@ -104,9 +104,9 @@ const PaymentDetail = () => {
                                             <div className="flex bg-[#eff6ff] justify-center items-center w-full">
                                                 <label
                                                     htmlFor="upload-file"
-                                                    className="flex flex-col justify-center items-center w-full h-20 border-2 border-[#93C5FD] rounded-lg cursor-pointer hover:bg-[#d8e9ff]"
+                                                    className="flex flex-col justify-center items-center w-full sm:h-20 h-16 border-2 border-[#93C5FD] rounded-lg cursor-pointer hover:bg-[#d8e9ff]"
                                                 >
-                                                    <div className="flex flex-col justify-center items-center pt-5 pb-6">
+                                                    <div className="flex flex-col justify-center items-center pt-5 sm:pb-6 pb-5">
                                                         <p className="text-sm flex items-center justify-center gap-2 text-blue">
                                                             <GoUpload className='text-xl' />
                                                             Upload File or Select File

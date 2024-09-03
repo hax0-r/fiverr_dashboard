@@ -51,7 +51,7 @@ const SelectDate = () => {
 
     return (
         <div>
-            <div className="bg-blue p-5 pt-10">
+            <div className="bg-blue sm:px-5 px-0 p-5 pt-10">
                 <div className="container flex items-center gap-4">
                     <Link to={"/home"}>
                         <FaArrowLeftLong className="bg-[#5082ef] p-3 text-5xl rounded-full text-white" />
@@ -61,24 +61,24 @@ const SelectDate = () => {
             </div>
 
             <div className="bg-[#eff6ff] ">
-                <div className="max-w-[960px]  mx-auto p-4 bg-white">
-                    <Card className="overflow-hidden relative border-none ">
+                <div className="max-w-[960px]  mx-auto sm:p-4 p-2 bg-white">
+                    <Card className="overflow-hidden relative shadow-none border-none ">
                         <div className="grid grid-cols-3 p-2 border rounded gap-2">
                             <Button
                                 onClick={() => handleOptionClick('Daily')}
-                                className={`p-7 text-[1rem] font-semibold text-blue ${selectedOption === 'Daily' ? 'bg-[#dbeafe]' : 'bg-white'}`}
+                                className={`sm:p-7 p-6  text-[1rem] font-semibold text-blue ${selectedOption === 'Daily' ? 'bg-[#dbeafe]' : 'bg-white'}`}
                             >
                                 Daily
                             </Button>
                             <Button
                                 onClick={() => handleOptionClick('6 Month')}
-                                className={`p-7 text-[1rem] font-semibold text-blue ${selectedOption === '6 Month' ? 'bg-[#dbeafe]' : 'bg-white'}`}
+                                className={`sm:p-7 p-6  text-[1rem] font-semibold text-blue ${selectedOption === '6 Month' ? 'bg-[#dbeafe]' : 'bg-white'}`}
                             >
                                 6 Month
                             </Button>
                             <Button
                                 onClick={() => handleOptionClick('12 Month')}
-                                className={`p-7 text-[1rem] font-semibold text-blue ${selectedOption === '12 Month' ? 'bg-[#dbeafe]' : 'bg-white'}`}
+                                className={`sm:p-7 p-6  text-[1rem] font-semibold text-blue ${selectedOption === '12 Month' ? 'bg-[#dbeafe]' : 'bg-white'}`}
                             >
                                 12 Month
                             </Button>
@@ -99,18 +99,20 @@ const SelectDate = () => {
                                 mode="single"
                                 selected={checkInDate}
                                 onSelect={handleDateSelect}
-                                className="rounded-md border w-full"
+                                className="rounded-md shadow-md border w-full"
                             />
                         </div>
-
-                        <HomeRoomDetails
-                            checkInDate={checkInDate}
-                            checkOutDate={checkOutDate}
-                            formatDate={formatDate}
-                        />
+                        <div className="mt-6 ">
+                            <HomeRoomDetails
+                                checkInDate={checkInDate}
+                                checkOutDate={checkOutDate}
+                                formatDate={formatDate}
+                            />
+                        </div>
                         <div className="py-12"></div>
 
-                        <div className="fixed bottom-0 max-w-[944px] mx-auto py-4 pr-4 bg-white  w-full">
+                        {/* <div className=" p-5 "> */}
+                        <div className="fixed bottom-0 max-w-[944px] mx-auto py-4 pr-4 bg-white shadow-none border-none  w-full">
                             <Link to={`tenant-information`} >
                                 <Button className="bg-[#2463EB] mt-4 w-full justify-center hover:bg-darkBlue text-white flex items-center tracking-wide gap-2 px-4 py-7 rounded-full text-[1rem]">
                                     Continue

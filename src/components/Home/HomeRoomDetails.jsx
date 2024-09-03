@@ -15,11 +15,11 @@ const HomeRoomDetails = ({ checkInDate, checkOutDate, formatDate, method }) => {
     return (
         <div>
             <div className="border-[1.33px] border-[#cfd1d4] p-3 rounded-t-lg flex gap-4">
-                <img src={room?.subImg} className="h-[9rem] rounded-xl" alt="house" />
+                <img src={room?.subImg} className="sm:h-[9rem] h-[100px] rounded-xl" alt="house" />
                 <div>
-                    <p className="text-blue bg-[#EFF6FF] inline-block my-2 px-3 py-[6px] rounded-lg">{room?.title}</p>
+                    <p className="text-blue bg-[#EFF6FF] text-nowrap inline-block my-2 px-3 py-[6px] rounded-lg">{room?.title}</p>
                     <h2 className="text-[#1D1D1D] font-semibold text-lg">{room2?.title}</h2>
-                    <p className="flex items-center gap-2 text-[#6E6E6E]">
+                    <p className="flex items-center py-1 gap-2 text-[#6E6E6E]">
                         {room?.month} Rent
                     </p>
                     <p className="flex items-center gap-2 text-[#6E6E6E]">
@@ -32,15 +32,15 @@ const HomeRoomDetails = ({ checkInDate, checkOutDate, formatDate, method }) => {
                 {
                     method && (
                         <div className="flex justify-between items-center">
-                            <span className="text-[#1D1D1D] font-bold">Payment method</span>
-                            <p className="text-[#FA5501] text-xl font-semibold">
+                            <span className="text-[#1D1D1D] font-medium">Payment method</span>
+                            <p className="text-[#FA5501] font-semibold">
                                 {method}
                             </p>
                         </div>
                     )
                 }
                 <div className="flex justify-between items-center">
-                    <span className="text-[#1D1D1D] font-bold">Total Price</span>
+                    <span className="text-[#1D1D1D] font-medium">Total Price</span>
                     <p className="text-[#FA5501] text-xl font-semibold">
                         RM 1200
                     </p>
