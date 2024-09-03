@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { GoPlusCircle } from "react-icons/go";
+import { AddFacility } from "@/Pages/Property/AddFacility";
 
-const FacilitySelector = ({ facilities }) => { // Accepting facilities as a prop
+const FacilitySelector = ({ facilities, popup }) => { // Accepting facilities as a prop
     const [selectedFacilities, setSelectedFacilities] = useState([]);
 
     const toggleFacility = (facility) => {
@@ -30,9 +31,20 @@ const FacilitySelector = ({ facilities }) => { // Accepting facilities as a prop
 
                 ))}
             </div>
-            <Button variant="link" className="text-blue pl-1 mt-4 flex items-center gap-2">
-                <GoPlusCircle className="text-xl" /> Add custom facility
-            </Button>
+            {
+                popup === "addProperty" ?
+                    <AddFacility
+                        title="Shared Facilities"
+                        placeholder="Input new shared Facilities"
+                        btnName="Add custom facility"
+                    />
+                    :
+                    <AddFacility
+                        title="Room Facilities"
+                        placeholder="Input new room Facilities"
+                        btnName="Add custom facility"
+                    />
+            }
         </div>
     );
 };

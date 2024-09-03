@@ -122,7 +122,11 @@ const AddRoomType = () => {
                                 <Input className="placeholder:text-[#94A3B8] mt-1" value="Not allowed to bring children" placeholder="Enter Rule" />
                                 <AiOutlineMinusCircle className='text-2xl text-red-500' />
                             </div>
-                            <AddFacility/>
+                            <AddFacility
+                                title="Rules"
+                                placeholder="Input new Rules"
+                                btnName="Add Rules"
+                            />
                         </div>
 
                     </div>

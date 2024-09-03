@@ -15,22 +15,22 @@ import { GoPlusCircle } from 'react-icons/go';
 import { PiTrash } from 'react-icons/pi';
 import { FiPlus } from 'react-icons/fi';
 
-export function AddFacility() {
+export function AddFacility({ placeholder, title, btnName }) {
     const [add, setAdd] = useState(false);
     return (
         <Dialog>
             <DialogTrigger asChild>
                 <Button
                     variant="link"
-                    className=" text-blue text-[15px] p-0 mx-auto mt-4 mb-1 underline font-normal flex items-center gap-1"
+                    className={`text-blue text-[15px] ${title === "Rules" && "mx-auto"} p-0  mt-4 mb-1 underline font-normal flex items-center gap-1`}
                 >
                     <GoPlusCircle className="w-5 h-5 text-blue" />
-                    Add Rules
+                    {btnName}
                 </Button>
             </DialogTrigger>
             <DialogContent className="sm:max-w-[425px]">
                 <DialogHeader>
-                    <DialogTitle>Rules</DialogTitle>
+                    <DialogTitle>{title}</DialogTitle>
                 </DialogHeader>
                 <div className=" pt-4 pb-3">
                     <div className="flex flex-col gap-2">
@@ -43,7 +43,7 @@ export function AddFacility() {
                             <Input
                                 id="name"
                                 className="col-span-3"
-                                placeholder="Input new Rules"
+                                placeholder={placeholder}
                             />
                             {
                                 add && (
@@ -67,7 +67,7 @@ export function AddFacility() {
                                     <Input
                                         id="name"
                                         className="col-span-3"
-                                        placeholder="Input new Rules"
+                                        placeholder={placeholder}
                                     />
                                     <FiPlus
                                         className='text-white bg-blue border-2 border-blue rounded-full transition-all w-9 h-8 p-[6px] cursor-pointer' />
