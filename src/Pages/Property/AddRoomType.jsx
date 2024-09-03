@@ -24,6 +24,7 @@ import { Label } from '@/components/ui/label';
 import { CirclePlus, Trash2 } from 'lucide-react';
 import { GoPlusCircle } from 'react-icons/go';
 import { PROPERTY_DATA } from '@/assets/Property/PropertyData';
+import { AddFacility } from './AddFacility';
 
 const facilities = [
     { name: "Parking Motorbike", icon: FaMotorcycle },
@@ -121,13 +122,7 @@ const AddRoomType = () => {
                                 <Input className="placeholder:text-[#94A3B8] mt-1" value="Not allowed to bring children" placeholder="Enter Rule" />
                                 <AiOutlineMinusCircle className='text-2xl text-red-500' />
                             </div>
-                            <Button
-                                variant="link"
-                                className=" text-blue text-[15px] p-0 mx-auto mt-4 mb-1 underline font-normal flex items-center gap-1"
-                            >
-                                <GoPlusCircle className="w-5 h-5 text-blue" />
-                                Add block
-                            </Button>
+                            <AddFacility/>
                         </div>
 
                     </div>
@@ -297,7 +292,7 @@ const AddRoomType = () => {
                                 className=" text-blue text-[15px] underline font-normal p-0 pt-5 flex items-center gap-1"
                             >
                                 <GoPlusCircle className="w-5 h-5 text-blue" />
-                                Add block
+                                Add Prices
                             </Button>
                         </div>
 
