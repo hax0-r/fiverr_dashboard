@@ -7,6 +7,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/com
 import { Textarea } from "@/components/ui/textarea"; // shadcn Textarea component
 import { CirclePlus, Trash2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { PiTrash } from 'react-icons/pi';
 
 const Setting = () => {
   const [banks, setBanks] = useState([{ id: 1, bankName: '', accountName: '', accountNumber: '', logo: null }]);
@@ -107,10 +108,12 @@ const Setting = () => {
                         <Input type="file" id={`upload-logo-${bank.id}`} className="mt-1" />
                         {
                           banks.length > 1 &&
-                          <Trash2
-                            className='text-red-500 border-2 border-red-500 rounded-full w-12 h-10 p-[6px] cursor-pointer'
-                            onClick={() => handleRemoveBank(bank.id)}
-                          />
+                          <div className=" border-[1.4px] border-[#FF0000] p-[6px] hover:bg-red-50 transition-all rounded-full cursor-pointer"
+                          onClick={() => handleRemoveBank(bank.id)}>
+                            <PiTrash
+                              className='text-[#FF0000] text-lg'
+                            />
+                          </div>
                         }
                       </div>
                     </div>

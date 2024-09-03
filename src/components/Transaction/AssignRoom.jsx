@@ -1,14 +1,9 @@
 import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetClose, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import { Label } from "@/components/ui/label";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { FaArrowRightLong } from 'react-icons/fa6';
 import { useToast } from "@/components/ui/use-toast";
-import { Toaster } from "@/components/ui/toaster"
 import ProgressNavigation from './ProgressNavigation';
-import ToastWithTitle from './ToastWithTitle';
 import TenantProfile from '../Tenant/TenantProfile';
 import RoomDetails from '../Tenant/RoomDetails';
 import AssignRoomTableData from '../Tenant/AssignRoomTableData';
@@ -124,9 +119,6 @@ const AssignRoom = ({ booking, btnName }) => {
                             >
                                 {currentStep === 3 ? "Confirm" : "Continue"}
                             </Button>
-                            <Toaster></Toaster>
-                            <ToastWithTitle />
-
                         </div>
                     </SheetContent>
                 </Sheet>
