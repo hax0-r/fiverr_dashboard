@@ -4,6 +4,9 @@ import BookingTable from '@/components/Transaction/BookingTable'
 import { Button } from '@/components/ui/button'
 import { DollarSign } from 'lucide-react'
 import { PiMicrosoftExcelLogoFill } from 'react-icons/pi'
+import SlideSheet from '@/components/Transaction/SlideSheet'
+import { BOOKING } from '@/assets/Transactionlist'
+import AddPayment from '@/components/Transaction/AddPayment'
 
 const TransactionList = () => {
 
@@ -20,7 +23,7 @@ const TransactionList = () => {
         </div>
         <div className="mt-7 flex justify-end items-center gap-4 ">
           <Button className="flex items-center gap-2 bg-transparent border-[1.5px] py-5 border-blue text-blue  font-semibold hover:bg-[#fafafa] "><PiMicrosoftExcelLogoFill className='text-blue text-xl' />Export Data</Button>
-          <Button className="flex items-center gap-2 bg-blue border-[1.5px] py-5 border-blue hover:text-blue text-white   hover:bg-transparent ">Add Payment</Button>
+          <AddPayment booking={BOOKING} />
         </div>
         <div className="mt-3">
           <BookingTable />
