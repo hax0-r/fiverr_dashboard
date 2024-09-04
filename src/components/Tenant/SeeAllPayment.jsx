@@ -4,6 +4,8 @@ import { Button } from '../ui/button'
 import { FaArrowLeftLong } from 'react-icons/fa6'
 import { FaCarSide } from 'react-icons/fa'
 import { PiReceiptFill } from 'react-icons/pi'
+import { Link } from 'react-router-dom'
+import Receipt from './Receipt'
 
 const SeeAllPayment = ({ setSeeAll }) => {
     const data = [
@@ -55,7 +57,9 @@ const SeeAllPayment = ({ setSeeAll }) => {
                                         <td className=" p-3 py-3 text-nowrap bg-[#eff6ff]  text-gray-700">{item.method}</td>
                                         <td className=" p-3 py-3 text-nowrap bg-[#eff6ff]  text-gray-700">{item.amount}</td>
                                         <td className=" p-3 py-3 text-nowrap rounded-r-lg bg-[#eff6ff]  text-gray-700">
-                                            <PiReceiptFill className="text-[#2463EB] cursor-pointer text-lg" />
+                                            <Link>
+                                                <Receipt />
+                                            </Link>
                                         </td>
                                     </tr>
                                     <tr className='h-2'></tr>

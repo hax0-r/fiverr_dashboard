@@ -9,6 +9,7 @@ import { Table, TableBody, TableCell, TableRow } from '../ui/table';
 import { RiEdit2Line } from 'react-icons/ri';
 import EditTenantProfile from './EditTenantProfile';
 import SeeAllPayment from './SeeAllPayment';
+import Receipt from './Receipt';
 
 
 const SlideSheetTenant = ({ booking }) => {
@@ -86,7 +87,7 @@ const SlideSheetTenant = ({ booking }) => {
                                                                     <TableCell className="p-2">Maybank</TableCell>
                                                                     <TableCell className="p-2">RM 1,200</TableCell>
                                                                     <TableCell className="p-2 text-blue">
-                                                                        <PiReceiptFill className='text-2xl' />
+                                                                    <Receipt />
                                                                     </TableCell>
                                                                 </TableRow>
                                                             </TableBody>
@@ -102,7 +103,7 @@ const SlideSheetTenant = ({ booking }) => {
                                                                     <TableCell className="p-2">Maybank</TableCell>
                                                                     <TableCell className="p-2">RM 1,200</TableCell>
                                                                     <TableCell className="p-2 text-blue">
-                                                                        <PiReceiptFill className='text-2xl' />
+                                                                    <Receipt />
                                                                     </TableCell>
                                                                 </TableRow>
                                                             </TableBody>
@@ -118,7 +119,7 @@ const SlideSheetTenant = ({ booking }) => {
                                                                     <TableCell className="p-2">Maybank</TableCell>
                                                                     <TableCell className="p-2">RM 1,200</TableCell>
                                                                     <TableCell className="p-2 text-blue">
-                                                                        <PiReceiptFill className='text-2xl' />
+                                                                    <Receipt />
                                                                     </TableCell>
                                                                 </TableRow>
                                                             </TableBody>

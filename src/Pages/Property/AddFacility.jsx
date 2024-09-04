@@ -18,7 +18,7 @@ import { FiPlus } from 'react-icons/fi';
 export function AddFacility({ placeholder, title, btnName }) {
     const [add, setAdd] = useState(false);
     return (
-        <Dialog>
+        <Dialog className="">
             <DialogTrigger asChild>
                 <Button
                     variant="link"
@@ -28,7 +28,7 @@ export function AddFacility({ placeholder, title, btnName }) {
                     {btnName}
                 </Button>
             </DialogTrigger>
-            <DialogContent className="sm:max-w-[425px]">
+            <DialogContent className="sm:max-w-[650px]">
                 <DialogHeader>
                     <DialogTitle>{title}</DialogTitle>
                 </DialogHeader>
