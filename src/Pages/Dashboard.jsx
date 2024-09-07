@@ -43,7 +43,7 @@ const Dashboard = () => {
                                 </DropdownMenuItem>
                             </DropdownMenuContent>
                         </DropdownMenu>
-                        <Link to={"/transaction-list"}>
+                        <Link to={"/dashboard/occupancy"}>
                             <Button className="bg-transparent transition-all border-[1.5px] border-blue text-blue hover:bg-blue hover:text-white">
                                 See All
                             </Button>
