@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { IoSearchOutline } from 'react-icons/io5';
 import { FaChevronDown } from 'react-icons/fa';
 import { Button } from '@/components/ui/button';
@@ -12,12 +12,13 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { Pagination, PaginationContent, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from '@/components/ui/pagination';
 import OccupancyCard from '@/components/DashBoard/OccupancyCard';
-import { ROOM_LIST } from '@/assets/Property/RoomList';
-import { PROPERTY_DATA } from '@/assets/Property/PropertyData';
 import { Breadcrumb, BreadcrumbItem, BreadcrumbList, BreadcrumbSeparator } from '@/components/ui/breadcrumb';
 import { PiMicrosoftExcelLogoFill } from 'react-icons/pi';
+import { OCCUPANCY_PROPERTY } from '@/assets/Dashboard/Occupancy';
+import OccupancyRoomCard from '@/components/DashBoard/OccupancyRoomCard';
 
 const Occupancy = () => {
+    const [cardType, setCardType] = useState(true); // Updated state name for consistency
     const [searchQuery, setSearchQuery] = useState('');
     const [filters, setFilters] = useState({
         floor: '',
@@ -26,28 +27,30 @@ const Occupancy = () => {
     });
     const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 9;
-    const { id } = useParams();
 
     const handleFilterChange = (filterName, value) => {
         setFilters((prevFilters) => ({
             ...prevFilters,
             [filterName]: value === 'All' ? '' : value,
         }));
+
+        // Update `cardType` state based on the "Type" filter value
+        if (filterName === 'Type') {
+            setCardType(value === 'Property');
+        }
     };
 
-    const filteredRooms = ROOM_LIST.filter((room) => {
+    const filteredProperties = OCCUPANCY_PROPERTY.filter((property) => {
         return (
-            (!filters.floor || room.floor === filters.floor) &&
-            (!filters.gender || room.gender === filters.gender) &&
-            (!filters.status || room.status === filters.status) &&
-            room.ids?.toLowerCase().includes(searchQuery.toLowerCase())
+            (!filters.property || property.name.toLowerCase().includes(filters.property.toLowerCase())) &&
+            property.name.toLowerCase().includes(searchQuery.toLowerCase())
         );
     });
 
-    const totalItems = filteredRooms.length;
+    const totalItems = filteredProperties.length;
     const totalPages = Math.ceil(totalItems / itemsPerPage);
     const startIndex = (currentPage - 1) * itemsPerPage;
-    const currentRooms = filteredRooms.slice(startIndex, startIndex + itemsPerPage);
+    const currentProperties = filteredProperties.slice(startIndex, startIndex + itemsPerPage);
 
     return (
         <div>
@@ -80,41 +83,52 @@ const Occupancy = () => {
                     />
                     <IoSearchOutline className="absolute left-0 text-[#848485]" />
                 </div>
+
                 {/* Filter Dropdowns */}
                 <div className="flex items-center gap-4">
-
-                    {[
-                        { label: 'Floor', name: 'floor', options: ['1', '2', 'All'] },
-                        { label: 'Gender', name: 'gender', options: ['Male', 'Female', 'Others', 'All'] },
-                        { label: 'Status', name: 'status', options: ['Available', 'Occupied', 'All'] },
-                    ].map(({ label, name, options }) => (
-                        <DropdownMenu key={name}>
-                            <DropdownMenuTrigger asChild>
-                                <Button className="bg-transparent hover:bg-transparent text-[#101010] border-[1.4px] border-zinc-300 flex items-center gap-2">
-                                    {filters[name] || 'Select'} <FaChevronDown />
-                                </Button>
-                            </DropdownMenuTrigger>
-                            <DropdownMenuContent>
-                                {options.map((option) => (
-                                    <DropdownMenuItem key={option} onSelect={() => handleFilterChange(name, option)}>
-                                        {option}
-                                    </DropdownMenuItem>
-                                ))}
-                            </DropdownMenuContent>
-                        </DropdownMenu>
-                    ))}
+                    <div className="border p-3 py-2 border-gray-200 rounded-lg ml-auto flex justify-end items-center flex-wrap gap-5">
+                        {[
+                            { label: 'Property', name: 'property', options: ['All'] },
+                            { label: 'Gender', name: 'gender', options: ['Male', 'Female', 'Others', 'All'] },
+                            { label: 'Type', name: 'Type', options: ['Property', 'Room Type'] }, // Updated filter options
+                        ].map(({ label, name, options }, index) => (
+                            <div key={index} className="flex items-center gap-4 text-nowrap">
+                                {label}
+                                <DropdownMenu>
+                                    <DropdownMenuTrigger asChild>
+                                        <Button className="bg-transparent transition-all text-[#101010] border-[1.4px] border-zinc-300 hover:bg-zinc-100 hover:border-zinc-100 flex items-center gap-2">
+                                            {filters[name] || 'All'}
+                                            <FaChevronDown className='text-[#101010]' />
+                                        </Button>
+                                    </DropdownMenuTrigger>
+                                    <DropdownMenuContent>
+                                        {options.map(option => (
+                                            <DropdownMenuItem key={option} onSelect={() => handleFilterChange(name, option)}>
+                                                {option}
+                                            </DropdownMenuItem>
+                                        ))}
+                                    </DropdownMenuContent>
+                                </DropdownMenu>
+                            </div>
+                        ))}
+                    </div>
                 </div>
             </div>
 
-
             <div className="">
-                {/* cards */}
-                <div className="border p-3 grid grid-cols-3 gap-4">
-                    {currentRooms.map((room) => (
-                        <OccupancyCard key={room.id} />
-                    ))}
-                </div>
-
+                {cardType ? (
+                    <div className="border p-3 grid grid-cols-3 gap-4 animate-myFadeIn">
+                        {currentProperties.map((property) => (
+                            <OccupancyCard key={property.id} property={property} />
+                        ))}
+                    </div>
+                ) : (
+                    <div className="border p-3 animate-myFadeIn grid grid-cols-3 gap-4">
+                        {currentProperties.map((property) => (
+                            <OccupancyRoomCard key={property.id} property={property} />
+                        ))}
+                    </div>
+                )}
 
                 {/* Pagination Section */}
                 <div className="flex justify-between items-center px-3 py-2 my-4 border border-gray-200 rounded-lg">
@@ -145,7 +159,7 @@ const Occupancy = () => {
                     </Pagination>
                 </div>
             </div>
-        </div >
+        </div>
     )
 }
 

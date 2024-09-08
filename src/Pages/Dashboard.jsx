@@ -8,6 +8,7 @@ import { Users, CreditCard, CircleCheck, ArrowUpRight } from "lucide-react";
 import DonutChartWithText from '@/components/DashBoard/DonutChart';
 import { StatCard } from '@/components/DashBoard/StatCard';
 import { Link } from 'react-router-dom';
+import { OCCUPANCY_PROPERTY } from '@/assets/Dashboard/Occupancy';
 
 const Dashboard = () => {
 
@@ -51,9 +52,11 @@ const Dashboard = () => {
                     </div>
                 </div>
                 <div className="mt-5 gap-4 items-center grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-                    <OccupancyCard />
-                    <OccupancyCard />
-                    <OccupancyCard />
+                    {
+                        OCCUPANCY_PROPERTY.slice(0, 3).map((property) => (
+                            <OccupancyCard property={property} />
+                        ))
+                    }
                 </div>
                 <div className="w-full flex justify-between items-center mt-5">
                     <h2 className='text-xl font-bold'>Bookings Details</h2>

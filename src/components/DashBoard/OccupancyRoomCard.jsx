@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 
-const OccupancyCard = ({property}) => {
+const OccupancyRoomCard = ({ property }) => {
     const totalRooms = property.total;
     const occupiedRooms = 41;
     const bookedRooms = property.occupied;
@@ -15,8 +15,12 @@ const OccupancyCard = ({property}) => {
             <CardHeader className="pb-3 pt-2 px-4">
                 <div className="flex  justify-between items-center">
                     <div>
-                        <p className="text-[13px] text-muted-foreground ">{totalRooms} Total</p>
-                        <CardTitle className="text-md ">{property.name}</CardTitle>
+                        <div className="flex items-center gap-2">
+                            <p className="text-[13px] text-muted-foreground font-medium ">{totalRooms} Total</p>
+                            <p className={`${property.gender === "Male" ? "bg-[#eff6ff] text-[#3B83F6]" : "bg-[#FEF2F2] text-[#F14242]"} p-1 px-3 rounded-md`}>{property.gender}</p>
+                        </div>
+                        <CardTitle className="text-sm text-[#696969] font-medium pt-5">{property.name}</CardTitle>
+                        <CardTitle className="text-lg ">{property.room}</CardTitle>
                     </div>
                     <div className="flex flex-col items-center ">
                         <div className="relative flex items-center justify-center mr-5 mt-5">
@@ -106,4 +110,4 @@ const OccupancyCard = ({property}) => {
     );
 };
 
-export default OccupancyCard;
+export default OccupancyRoomCard;
